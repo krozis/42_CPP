@@ -10,6 +10,8 @@ STDFLAG	=	-std=c++98
 # Folders and Sources
 SRCS	=	test.cpp\
 			Personnage.cpp\
+			Weapon.cpp\
+
 
 $(NAME):	$(SRCS)
 		@$(CC) $(FLAGS) -o $@ $^
