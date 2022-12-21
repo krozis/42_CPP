@@ -9,6 +9,7 @@ class	Weapon
 	public:
 		Weapon(std::string name, int dmg);
 		~Weapon(void);
+		void changeWeapon(std::string name, int dmg);
 		int	getDmgValue() const;
 		std::string	getName() const;
 

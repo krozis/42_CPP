@@ -33,9 +33,9 @@ void	Personnage::drinkPotion(int potionValue)
 	std::cout << m_name << " has now " << m_hp << "HP." << std::endl;
 }
 
-void	Personnage::changeWeapon(Weapon &new_weapon)
+void	Personnage::changeWeapon(std::string new_weapon_name, int new_weapon_dmg)
 {
-	m_weapon = new_weapon;
+	m_weapon.changeWeapon(new_weapon_name, new_weapon_dmg);
 	std::cout << this->m_name << " changed weapon to " << m_weapon.getName() << "." << std::endl;
 }
 
@@ -44,17 +44,32 @@ bool	Personnage::isAlive() const
 	return (m_hp > 0);
 }
 
+void		Personnage::getState() const
+{
+	std::cout << m_name << " has actually " << m_hp << "HP ";
+	std::cout << "and has " << m_weapon.getName() << " (";
+	std::cout << m_weapon.getDmgValue() << "dmg)." << std::endl;
+}
+
 //CONSTRUCTOR - DESTRUCTOR
 
-Personnage::Personnage(std::string name, int hp, Weapon &weapon):
-	m_name(name), m_max_hp(hp), m_weapon(weapon)
+Personnage::Personnage(std::string name, int hp, std::string weapon_name, int weapon_dmg):
+	m_name(name), m_max_hp(hp), m_weapon(weapon_name, weapon_dmg)
 {
 	m_hp = m_max_hp;
-	//std::cout << "-----Created " << m_name << " with " << this->m_hp << "HP." << std::endl;
+	std::cout << "-----Created " << m_name << " with " << this->m_hp << "HP." << std::endl;
 
 };
 
+
+Personnage::Personnage(std::string name):
+	m_name(name), m_max_hp(100), m_hp(100), m_weapon("Bare Hands", 5)
+{
+	std::cout << "-----Created " << m_name << " with " << this->m_hp << "HP." << std::endl;
+}
+
+
 Personnage::~Personnage(void)
 {
-	//std::cout << "-----Destruction de " << this->m_name << std::endl;
+	std::cout << "-----Destruction de " << this->m_name << std::endl;
 }

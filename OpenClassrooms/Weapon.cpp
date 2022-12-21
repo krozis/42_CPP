@@ -10,6 +10,12 @@ std::string	Weapon::getName(void) const
 	return (m_name);
 }
 
+void	Weapon::changeWeapon(std::string name, int dmg)
+{
+	m_name = name;
+	m_dmg = dmg;
+}
+
 //CONSTRUCTOR - DESTRUCTOR
 
 Weapon::Weapon(std::string name, int dmg):
