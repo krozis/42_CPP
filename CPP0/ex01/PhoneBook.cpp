@@ -45,11 +45,9 @@ int	PhoneBook::_display_short(void)
 		if (_contacts[idx].isSet() == false)
 			break ;
 		std::cout << "|" << std::setw(10);
-		std::cout << idx + 1 << "|" << std::setw(10);
+		std::cout << idx + 1 << "|" << std::setw(10) ;
 		std::cout << _cut_str(_contacts[idx].getFirstName()) << "|"  << std::setw(10);
-		std::cout << std::setw(10);
 		std::cout << _cut_str(_contacts[idx].getLastName()) << "|"  << std::setw(10);
-		std::cout << std::setw(10);
 		std::cout << _cut_str(_contacts[idx].getNickName()) << "|"  << std::endl;
 		idx++;
 	}
