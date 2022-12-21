@@ -50,6 +50,13 @@ void    Contact::setSecret(std::string secret)
 	_darkestsecret = secret;
 }
 
+bool	Contact::isSet(void) const
+{
+	if (_firstname == "No entry")
+		return (false);
+	return (true);
+}
+
 Contact::Contact()
 {
 	_firstname = "No entry";

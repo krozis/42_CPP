@@ -19,6 +19,7 @@ public:
     void    setNickName(std::string nickname);
     void    setPhoneNumber(std::string number);
     void    setSecret(std::string secret);
+    bool    isSet() const;
 
 private:
     std::string _firstname;
