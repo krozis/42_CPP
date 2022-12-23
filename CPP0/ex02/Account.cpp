@@ -1,7 +1,6 @@
 #include "Account.hpp"
 #include <iostream>
 #include <iomanip>
-#include <string>
 
 //PUBLIC
 
@@ -11,6 +10,7 @@ int	Account::_totalNbDeposits = 0;
 int	Account::_totalNbWithdrawals = 0;
 
 //Get
+
 int	Account::getNbAccounts( void )
 {
 	return (Account::_nbAccounts);
@@ -32,6 +32,7 @@ int	Account::getNbWithdrawals( void )
 }
 
 //Methods
+
 void	Account::displayAccountsInfos( void )
 {
 	_displayTimestamp();
@@ -83,6 +84,7 @@ int		Account::checkAmount(void) const
 }
 
 //Constructor-Destructor
+
 Account::Account(int initial_deposit)
 {
 	this->_accountIndex = _nbAccounts;
