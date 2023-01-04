@@ -24,11 +24,3 @@ int	main(void)
 	}
 	return (EXIT_SUCCESS);
 }
-
-/*
-	kro.setFirstName("Stephen");
-	kro.setLastName("Elie");
-	kro.setNickName("KroziS");
-	kro.setPhoneNumber("06.42.04.40.24");
-	kro.setSecret("Spongeophobe");
-*/
