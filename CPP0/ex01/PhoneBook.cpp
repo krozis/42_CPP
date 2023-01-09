@@ -2,7 +2,11 @@
 
 //PRIVATE
 
-bool	isPrintable(std::string str)
+/*
+ * @brief: Checks if a string contains only printable characters.
+ * Returns true or false.
+*/
+static bool	isPrintable(std::string str)
 {
 	for (int i = 0; i < (int)str.size(); i++)
 		if (str[i] < 32 || str[i] > 126)
