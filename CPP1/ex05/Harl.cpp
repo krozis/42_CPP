@@ -46,11 +46,9 @@ void	Harl::complain(std::string level)
 
 Harl::Harl()
 {
-	std::cout << "You created an Harl. Good luck." << std::endl;
 }
 
 Harl::~Harl()
 {
-	std::cout << "Thanks universe, Harl has been destroyed." << std::endl;
 }
 
