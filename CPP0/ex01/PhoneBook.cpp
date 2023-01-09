@@ -2,6 +2,14 @@
 
 //PRIVATE
 
+bool	isPrintable(std::string str)
+{
+	for (int i = 0; i < (int)str.size(); i++)
+		if (str[i] < 32 || str[i] > 126)
+			return (false);
+	return (true);
+}
+
 /*
  * @brief Trunks a string to max size of 10 chars.
 */
@@ -79,27 +87,27 @@ void	PhoneBook::_add_one(Contact &_contact)
 
 	input = "";
 	std::cout << "What is the first name? > ";
-	while (input.size() == 0)
+	while (input.size() == 0 || !isPrintable(input))
 		getline(std::cin, input);
 	_contact.setFirstName(input);
 	input = "";
 	std::cout << "What is the last name? > ";
-	while (input.size() == 0)
+	while (input.size() == 0 || !isPrintable(input))
 		getline(std::cin, input);
 	_contact.setLastName(input);
 	input = "";
 	std::cout << "What is the nickname? > ";
-	while (input.size() == 0)
+	while (input.size() == 0 || !isPrintable(input))
 		getline(std::cin, input);
 	_contact.setNickName(input);
 	input = "";
 	std::cout << "What is the phone number? > ";
-	while (input.size() == 0)
+	while (input.size() == 0 || !isPrintable(input))
 		getline(std::cin, input);
 	_contact.setPhoneNumber(input);
 	input = "";
 	std::cout << "What is the " << _contact.getFirstName() << "'s darkest secret? > ";
-	while (input.size() == 0)
+	while (input.size() == 0 || !isPrintable(input))
 		getline(std::cin, input);
 	_contact.setSecret(input);
 }
