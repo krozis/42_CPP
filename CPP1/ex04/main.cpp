@@ -24,21 +24,21 @@ static void	fillAndReplace(std::ofstream &fileOut, std::string content, char **a
 	int	pos = -2;
 	int i = 0;
 
-	pos = content.find(av[2]);
-	if (pos == -1)
-		fileOut << content;
-	else
+	while (i < (int)content.size())
 	{
-		//CORRECT TO BRING JUST HERE
-		while (pos != -1)
+		pos = content.find(av[2], i);
+		if (pos == -1)
 		{
-			fileOut << content.substr(i, pos);
-			i += content.substr(i, pos).size() + std::string(av[2]).size();
-			fileOut << av[3];
+			fileOut << content.substr(i, content.size() - (i + 1));
+			break ;
 		}
-		//CORRECT TO BRING JUST HERE ^
+		else
+		{
+			fileOut << content.substr(i, pos - i);
+			fileOut << av[3];
+			i = pos + std::string(av[2]).size();
+		}
 	}
-	(void)fileOut;
 }
 
 int	main(int ac, char **av)
@@ -59,6 +59,8 @@ int	main(int ac, char **av)
 	if (!fileOut)
 		return (argError("Error with the output file."));
 	getContent(fileIn, content);
+	fileIn.close();
 	fillAndReplace(fileOut, content, av);
+	fileOut.close();
 	return (EXIT_SUCCESS);
 }
