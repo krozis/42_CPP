@@ -52,22 +52,19 @@ void    Contact::setSecret(std::string secret)
 
 bool	Contact::isSet(void) const
 {
-	if (_firstname == "No entry")
+	if (_firstname.empty())
 		return (false);
 	return (true);
 }
 
 Contact::Contact()
 {
-	_firstname = "No entry";
-	_lastname = "No entry";
-	_nickname = "No entry";
-	_phonenumber = "No entry";
-	_darkestsecret = "No entry";
 }
 
 Contact::~Contact()
 {
-	if (_firstname != "No entry")
+	if (_firstname.empty() == false)
 		std::cout << "Deleted contact " << _firstname << " " << _lastname <<"." << std::endl;
+	else
+		std::cout << "Deleted an empty contact." << std::endl;
 }
