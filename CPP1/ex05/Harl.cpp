@@ -28,17 +28,24 @@ void	Harl::error()
 	std::cout << "This is unacceptable ! I want to speak to the manager now." << std::endl;
 }
 
+void	Harl::defaultComplain()
+{
+	std::cout << "[ Probably complaining about insignificant problems ]" << std::endl;
+}
 
 //PUBLIC
 
 void	Harl::complain(std::string level)
 {
-	std::string	lvl[4] = {"DEBUG", "INFO", "WARNING", "ERROR"};
-	void		(Harl::*function[4])(void) = {&Harl::debug, &Harl::info, &Harl::warning, &Harl::error};
+	std::string	lvl[5] = {"DEBUG", "INFO", "WARNING", "ERROR", "DEFAULT"};
+	void	(Harl::*function[5])(void) = {&Harl::debug, &Harl::info, &Harl::warning, &Harl::error, &Harl::defaultComplain};
 
-	for (int i = 0; i < 4; i++)
-		if (level == lvl[i])
+	for (int i = 0; i < 5; i++)
+		if (level == lvl[i] || i == 4)
+		{
 			(this->*function[i])();
+			break ;
+		}
 			
 }
 
