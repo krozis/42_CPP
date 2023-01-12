@@ -3,9 +3,6 @@
 
 # include <iostream>
 
-# define LIGHTBLUE "\e[94m"
-# define END "\033[0m"
-
 class Harl
 {
 	public:

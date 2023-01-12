@@ -44,7 +44,7 @@ void	Harl::error()
 
 void	Harl::defaultComplain()
 {
-	std::cout << LIGHTBLUE << "[ Probably complaining about insignificant problems ]" << END << std::endl;
+	std::cout << "[ Probably complaining about insignificant problems ]" << std::endl;
 }
 
 
