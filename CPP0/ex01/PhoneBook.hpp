@@ -3,6 +3,7 @@
 
 # include <iostream>
 # include <iomanip>
+# include <cstdlib>
 # include <string_view>
 # include "Contact.hpp"
 

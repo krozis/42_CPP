@@ -92,27 +92,47 @@ void	PhoneBook::_add_one(Contact &_contact)
 	input = "";
 	std::cout << "What is the first name? > ";
 	while (input.size() == 0 || !isPrintable(input))
+	{
+		if (std::cin.eof())
+			return ;
 		getline(std::cin, input);
+	}
 	_contact.setFirstName(input);
 	input = "";
 	std::cout << "What is the last name? > ";
 	while (input.size() == 0 || !isPrintable(input))
+	{
+		if (std::cin.eof())
+			return ;
 		getline(std::cin, input);
+	}
 	_contact.setLastName(input);
 	input = "";
 	std::cout << "What is the nickname? > ";
 	while (input.size() == 0 || !isPrintable(input))
+	{
+		if (std::cin.eof())
+			return ;
 		getline(std::cin, input);
+	}
 	_contact.setNickName(input);
 	input = "";
 	std::cout << "What is the phone number? > ";
 	while (input.size() == 0 || !isPrintable(input))
+	{
+		if (std::cin.eof())
+			return ;
 		getline(std::cin, input);
+	}
 	_contact.setPhoneNumber(input);
 	input = "";
 	std::cout << "What is the " << _contact.getFirstName() << "'s darkest secret? > ";
 	while (input.size() == 0 || !isPrintable(input))
+	{
+		if (std::cin.eof())
+			return ;
 		getline(std::cin, input);
+	}
 	_contact.setSecret(input);
 }
 
@@ -146,6 +166,8 @@ void	PhoneBook::search(void)
 		std::cout << "Enter the index of the contact you want to show (1 to 8)> ";
 		while (!(idx < 9 && idx > 0))
 		{
+			if (std::cin.eof())
+			return ;
 			std::cin >> buf;
 			if (buf.size() > 1 || !isdigit(buf[0]))
 				std::cout << "Invalid input." << std::endl;
