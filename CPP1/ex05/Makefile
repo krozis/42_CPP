@@ -1,5 +1,5 @@
 # Name
-NAME	=	harl
+NAME	=	Harl
 
 #Colors
 R			=	"\033[31m"
