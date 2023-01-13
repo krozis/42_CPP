@@ -1,6 +1,8 @@
 #include "Duree.hpp"
 
-//------------CONSTRUCTORS------------
+/********************************
+ *		CREATOR / DESTRUCTOR	*
+ ********************************/
 
 Duree::Duree(int hour, int min, int sec)
 {
@@ -24,7 +26,9 @@ Duree::~Duree()
 {
 }
 
-//------------METHODS------------
+/********************************
+ *			PUBLIC	 			*
+ ********************************/
 
 void	Duree::display(std::ostream &flux) const
 {
@@ -66,7 +70,9 @@ bool	Duree::isSmaller(Duree const &b) const
 	return (false);
 }
 
-//------------OPERATORS------------
+/********************************
+ *			OPERATORS 			*
+ ********************************/
 
 Duree	&Duree::operator+=(const Duree &a)
 {

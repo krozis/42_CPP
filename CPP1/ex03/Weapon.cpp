@@ -1,6 +1,8 @@
 #include "Weapon.hpp"
 
-//CONSTRUCTION/DESTRUCTION
+/********************************
+ *		CREATOR / DESTRUCTOR	*
+ ********************************/
 
 Weapon::Weapon(): _type("bare hands")
 {
@@ -14,7 +16,9 @@ Weapon::~Weapon()
 {
 }
 
-//METHODS
+/********************************
+ *			PUBLIC	 			*
+ ********************************/
 
 std::string const	&Weapon::getType() const
 {
@@ -26,7 +30,9 @@ void	Weapon::setType(std::string type)
 	_type = type;
 }
 
-//OPERATORS
+/********************************
+ *			OPERATORS			*
+ ********************************/
 
 std::ostream	&operator<<(std::ostream &flux, Weapon const &weapon)
 {

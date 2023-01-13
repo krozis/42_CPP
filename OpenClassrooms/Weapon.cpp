@@ -16,7 +16,9 @@ void	Weapon::changeWeapon(std::string name, int dmg)
 	m_dmg = dmg;
 }
 
-//CONSTRUCTOR - DESTRUCTOR
+/********************************
+ *		CREATOR / DESTRUCTOR	*
+ ********************************/NSTRUCTOR - DESTRUCTOR
 
 Weapon::Weapon(std::string name, int dmg):
 	m_name(name), m_dmg(dmg)

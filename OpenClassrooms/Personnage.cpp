@@ -51,7 +51,9 @@ void		Personnage::getState() const
 	std::cout << m_weapon.getDmgValue() << "dmg)." << std::endl;
 }
 
-//CONSTRUCTOR - DESTRUCTOR
+/********************************
+ *		CREATOR / DESTRUCTOR	*
+ ********************************/NSTRUCTOR - DESTRUCTOR
 
 Personnage::Personnage(std::string name, int hp, std::string weapon_name, int weapon_dmg):
 	m_name(name), m_max_hp(hp), m_weapon(weapon_name, weapon_dmg)

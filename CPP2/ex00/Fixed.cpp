@@ -1,6 +1,8 @@
 #include "Fixed.hpp"
 
-// Coplien
+/********************************
+ *		CREATOR / DESTRUCTOR	*
+ ********************************/
 
 Fixed::Fixed(): _value(0)
 {
@@ -27,7 +29,9 @@ Fixed	&Fixed::operator=(Fixed const &toAssign)
 	return (*this);
 }
 
-// Methods
+/********************************
+ *			PUBLIC	 			*
+ ********************************/
 
 int	Fixed::getRawBits() const
 {

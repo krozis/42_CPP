@@ -2,14 +2,14 @@
 #include <iostream>
 #include <iomanip>
 
-//PUBLIC
+/********************************
+ *			PUBLIC	 			*
+ ********************************/
 
 int Account::_nbAccounts = 0;
 int	Account::_totalAmount = 0;
 int	Account::_totalNbDeposits = 0;
 int	Account::_totalNbWithdrawals = 0;
-
-//Get
 
 int	Account::getNbAccounts( void )
 {
@@ -30,8 +30,6 @@ int	Account::getNbWithdrawals( void )
 {
 	return (Account::_totalNbWithdrawals);
 }
-
-//Methods
 
 void	Account::displayAccountsInfos( void )
 {
@@ -83,7 +81,9 @@ int		Account::checkAmount(void) const
 	return (0);
 }
 
-//Constructor-Destructor
+/********************************
+ *		CREATOR / DESTRUCTOR	*
+ ********************************/
 
 Account::Account(int initial_deposit)
 {
@@ -107,7 +107,9 @@ Account::~Account(void)
 	std::cout << "index:" << this->_accountIndex << ";amount:" << this->_amount << ";closed" << std::endl;
 } 
 
-//PRIVATE
+/********************************
+ *			PRIVATE 			*
+ ********************************/
 
 void	Account::_displayTimestamp(void)
 {

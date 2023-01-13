@@ -1,6 +1,8 @@
 #include "Harl.hpp"
 
-//PRIVATE
+/********************************
+ *			PRIVATE 			*
+ ********************************/
 
 void	Harl::debug()
 {
@@ -33,7 +35,9 @@ void	Harl::defaultComplain()
 	std::cout << "[ Probably complaining about insignificant problems ]" << std::endl;
 }
 
-//PUBLIC
+/********************************
+ *			PUBLIC	 			*
+ ********************************/
 
 void	Harl::complain(std::string level)
 {
@@ -49,7 +53,9 @@ void	Harl::complain(std::string level)
 			
 }
 
-//CONSTRUCTOR / DESTRUCTOR
+/********************************
+ *		CREATOR / DESTRUCTOR	*
+ ********************************/NSTRUCTOR / DESTRUCTOR
 
 Harl::Harl()
 {

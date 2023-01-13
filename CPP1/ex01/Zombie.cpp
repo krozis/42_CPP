@@ -1,6 +1,8 @@
 #include "Zombie.hpp"
 
-//PUBLIC
+/********************************
+ *			PUBLIC	 			*
+ ********************************/
 Zombie::Zombie(std::string name): _name(name)
 {
 }
