@@ -43,7 +43,7 @@ Fixed	&Fixed::operator=(Fixed const &toAssign)
 }
 
 /********************************
- *			PUBLIC	 			*
+ !*			PUBLIC	 			*
  ********************************/
 
 /**
@@ -78,6 +78,35 @@ int		Fixed::toInt() const
 	return (_value >> _bits);
 }
 
+
+Fixed	&Fixed::min(Fixed &a, Fixed &b)
+{
+	if (a < b)
+		return (a);
+	return (b);
+}
+
+Fixed const &Fixed::min(Fixed const &a, Fixed const &b)
+{
+	if (a < b)
+		return (a);
+	return (b);
+}
+
+Fixed	&Fixed::max(Fixed &a, Fixed &b)
+{
+	if (a > b)
+		return (a);
+	return (b);
+}
+
+Fixed const &Fixed::max(Fixed const &a, Fixed const &b)
+{
+	if (a > b)
+		return (a);
+	return (b);
+}
+
 /********************************
  *			OPERATORS 			*
  ********************************/
@@ -86,4 +115,88 @@ std::ostream &operator<<(std::ostream &flux, Fixed const &fixed)
 {
 	flux << fixed.toFloat();
 	return (flux);
+}
+
+// COMPARE
+
+bool	operator==(Fixed const &a, Fixed const &b)
+{
+	return (a.getRawBits() == b.getRawBits());
+}
+
+bool	operator!=(Fixed const &a, Fixed const &b)
+{
+	return (a.getRawBits() != b.getRawBits());
+}
+
+bool	operator<(Fixed const &a, Fixed const &b)
+{
+	return (a.getRawBits() < b.getRawBits());
+}
+
+bool	operator>(Fixed const &a, Fixed const &b)
+{
+	return (a.getRawBits() > b.getRawBits());
+}
+
+bool	operator<=(Fixed const &a, Fixed const &b)
+{
+	return (a == b || a < b);
+}
+
+bool	operator>=(Fixed const &a, Fixed const &b)
+{
+	return (a == b || a > b);
+}
+
+// ARITHMETIC
+
+Fixed	operator+(Fixed const &a, Fixed const &b)
+{
+	return (a.getRawBits() + b.getRawBits());
+}
+
+Fixed	operator-(Fixed const &a, Fixed const &b)
+{
+	return (a.getRawBits() - b.getRawBits());
+}
+
+Fixed	operator*(Fixed const &a, Fixed const &b)
+{
+	return (a.toFloat() * b.toFloat());
+}
+
+Fixed	operator/(Fixed const &a, Fixed const &b)
+{
+	return (a.toFloat() / b.toFloat());
+}
+
+// INCREMENTATION/DECREMENTATION
+
+Fixed	&Fixed::operator++()
+{
+	_value++;
+	return (*this);
+}
+
+Fixed	Fixed::operator++(int)
+{
+	Fixed	tmp = *this;
+
+	++*this;
+	return (tmp);
+}
+
+Fixed	&Fixed::operator--()
+{
+	_value--;
+	return (*this);
+}
+
+Fixed	Fixed::operator--(int)
+{
+	Fixed	tmp = *this;
+
+	--*this;
+	return (tmp);
 }
