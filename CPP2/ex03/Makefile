@@ -17,7 +17,7 @@ STDFLAG	=	-std=c++98
 SRCS	=	main.cpp\
 			Fixed.cpp\
 			Point.cpp\
-			bsp.cpp\
+#			bsp.cpp\
 
 $(NAME):	$(SRCS)
 		@$(CC) $(FLAGS) -o $@ $^
