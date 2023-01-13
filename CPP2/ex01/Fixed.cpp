@@ -1,6 +1,8 @@
 #include "Fixed.hpp"
 
-// CONSTRUCTOR / DESTRUCTORS
+/********************************
+ *		CREATOR / DESTRUCTOR	*
+ ********************************/
 
 Fixed::Fixed(): _value(0)
 {
@@ -17,7 +19,7 @@ Fixed::Fixed(int const value)
 Fixed::Fixed(float const value)
 {
 	std::cout << "Float constructor called" << std::endl;
-	_value = roundf(value);
+	_value = roundf(value * (pow(2, _bits)));
 }
 
 Fixed::Fixed(Fixed const &toCopy)
@@ -40,29 +42,45 @@ Fixed	&Fixed::operator=(Fixed const &toAssign)
 	return (*this);
 }
 
-// Methods
+/********************************
+ *			PUBLIC	 			*
+ ********************************/
 
+/**
+ * @brief Returns the raw value of the Fixed.
+ */
 int	Fixed::getRawBits() const
 {
 	return (_value);
 }
 
+/**
+ * @brief Sets the raw value of the Fixed.
+ */
 void	Fixed::setRawBits(int const raw)
 {
 	_value = raw;
 }
 
+/**
+ * @brief Returns the float value of the Fixed.
+ */
 float	Fixed::toFloat() const
 {
 	return (_value / pow(2, _bits));
 }
 
+/**
+ * @brief Returns the int value of the Fixed.
+ */
 int		Fixed::toInt() const
 {
 	return (_value >> _bits);
 }
 
-// OPERATORS
+/********************************
+ *			OPERATORS 			*
+ ********************************/
 
 std::ostream &operator<<(std::ostream &flux, Fixed const &fixed)
 {
