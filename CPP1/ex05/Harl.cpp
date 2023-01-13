@@ -55,7 +55,7 @@ void	Harl::complain(std::string level)
 
 /********************************
  *		CREATOR / DESTRUCTOR	*
- ********************************/NSTRUCTOR / DESTRUCTOR
+ ********************************/
 
 Harl::Harl()
 {
