@@ -89,7 +89,7 @@ int	PhoneBook::_display_short(void) const
  * @brief Asks the user to fill contact's informations.
  * @param  question: question to ask
  * @param  contact: the contact to modify
- * @param  type: enum e_ask's to set the right atribute
+ * @param  type: 0 to 4 (Firsname to Secret)
  */
 int	PhoneBook::_ask(std::string question, Contact &contact, int type)
 {
