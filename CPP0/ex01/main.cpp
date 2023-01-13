@@ -1,9 +1,6 @@
 #include <iostream>
-#include <string>
 #include <cstdlib>
-#include <csignal>
 #include "PhoneBook.hpp"
-#include "Contact.hpp"
 
 int	main(void)
 {
