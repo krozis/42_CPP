@@ -1,6 +1,8 @@
 #include "PhoneBook.hpp"
 
-//NON MEMBER FUNCTONS
+/********************************
+ *		NON-MEMBER FUNCTIONS	*
+ ********************************/
 
 /**
  * @brief Checks if a string contains only printable characters.
@@ -16,7 +18,7 @@ static bool	isPrintable(std::string str)
 /**
  * @brief	Tells if an input is invalid for usage.
  */
-static bool	_is_invalid_input(std::string input)
+bool	is_invalid_input(std::string input)
 {
 	if (input.empty() || !isPrintable(input))
 		return (true);
@@ -26,17 +28,19 @@ static bool	_is_invalid_input(std::string input)
 	return (true);
 }
 
-//PRIVATE
-
 /**
  * @brief Trunks a string to max size of 10 chars.
 */
-std::string	PhoneBook::_cut_str(std::string str) const
+static std::string	_cut_str(std::string str)
 {
 	if (str.size() > 10)
 		return (str.substr(0, 9) + ".");
 	return (str);
 }
+
+/********************************
+ *			PRIVATE 			*
+ ********************************/
 
 /**
  * @brief Displays the selected contact
@@ -54,7 +58,7 @@ void	PhoneBook::_display_one_full(Contact &_contact) const
 /**
  * @brief Displays the short list of contacts, with the index.
 */
-int	PhoneBook::_display_short(void)
+int	PhoneBook::_display_short(void) const
 {
 	int	idx = 0;
 	if (_contacts[idx].isSet() == false)
@@ -81,65 +85,54 @@ int	PhoneBook::_display_short(void)
 	return (idx);
 }
 
-
 /**
- * @brief Adds/Modifies one contact.
- * TODO: pointer sur fonction ?
-*/
-void	PhoneBook::_add_one(Contact &contact)
+ * @brief Asks the user to fill contact's informations.
+ * @param  question: question to ask
+ * @param  contact: the contact to modify
+ * @param  type: enum e_ask's to set the right atribute
+ */
+int	PhoneBook::_ask(std::string question, Contact &contact, int type)
 {
 	std::string	input;
 
-	std::cin.ignore();
-	std::cout << "What is the first name? ";
-	while (_is_invalid_input(input))
-	{
-		if (std::cin.eof())
-			return ;
-		std::cout << "> ";
-		getline(std::cin, input);
-	}
-	contact.setFirstName(input);
 	input.clear();
-	std::cout << "What is the last name?";
-	while (_is_invalid_input(input))
+	std::cout << question;
+	while (is_invalid_input(input))
 	{
 		if (std::cin.eof())
-			return ;
+			return (EXIT_FAILURE);
 		std::cout << "> ";
 		getline(std::cin, input);
 	}
-	contact.setLastName(input);
-	input.clear();
-	std::cout << "What is the nickname?";
-	while (_is_invalid_input(input))
+	switch (type)
 	{
-		if (std::cin.eof())
-			return ;
-		std::cout << "> ";
-		getline(std::cin, input);
+		case 0:
+		{
+			contact.setFirstName(input);
+			break;
+		}
+		case 1:
+		{
+			contact.setLastName(input);
+			break;
+		}
+		case 2:
+		{
+			contact.setNickName(input);
+			break;
+		}
+		case 3:
+		{
+			contact.setPhoneNumber(input);
+			break;
+		}
+		case 4:
+		{
+			contact.setSecret(input);
+			break;
+		}
 	}
-	contact.setNickName(input);
-	input.clear();
-	std::cout << "What is the phone number?";
-	while (_is_invalid_input(input))
-	{
-		if (std::cin.eof())
-			return ;
-		std::cout << "> ";
-		getline(std::cin, input);
-	}
-	contact.setPhoneNumber(input);
-	input.clear();
-	std::cout << "What is the " << contact.getFirstName() << "'s darkest secret?";
-	while (_is_invalid_input(input))
-	{
-		if (std::cin.eof())
-			return ;
-		std::cout << "> ";
-		getline(std::cin, input);
-	}
-	contact.setSecret(input);
+	return (EXIT_SUCCESS);
 }
 
 /**
@@ -157,16 +150,24 @@ int         PhoneBook::_get_next_idx() const
 	return (i);
 }
 
-// -- PUBLIC --
+/********************************
+ *			PUBLIC	 			*
+ ********************************/
 
 /**
  * @brief Adds a new contact to the phone book.
 */
 void	PhoneBook::add(void)
 {
-	int	i = _get_next_idx();
-	std::cout << "Adding contact to index " << i + 1 << std::endl;
-	_add_one(_contacts[i]);
+	std::string question[5] = {"What is the first name? ", "What is the last name? ",\
+		"What is the nickname? ", "What is the phone number? ", "What is his darkest secret? "};
+	int			idx = _get_next_idx();
+
+	std::cout << "Adding contact to index " << idx + 1 << std::endl;
+	std::cin.ignore();
+	for (int i=0; i < 5; i++)	
+		if (_ask(question[i], _contacts[idx], i) == EXIT_FAILURE)
+			break ;
 }
 
 /**
@@ -203,7 +204,9 @@ void	PhoneBook::search(void)
 	}
 }
 
-//CREATOR / DESTRUCTOR
+/********************************
+ *		CREATOR / DESTRUCTOR	*
+ ********************************/
 
 PhoneBook::PhoneBook()
 {
@@ -214,4 +217,3 @@ PhoneBook::~PhoneBook()
 {
 	std::cout << "Deleted PhoneBook." << std::endl;
 }
-

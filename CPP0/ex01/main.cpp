@@ -8,25 +8,23 @@
 int	main(void)
 {
 	PhoneBook	book;
-	std::string	user_entry = "";
+	std::string	input;
 
 	while (true)
 	{
-		if (std::cin.eof())
-			break ;
+		input = "";
 		std::cout << "Enter your command > ";
-		std::cin >> user_entry;
+		std::cin >> input;
 		if (std::cin.eof())
 			break ;
-		if (user_entry == "EXIT")
+		if (input == "EXIT" || input == "exit")
 			break ;
-		else if (user_entry == "SEARCH")
+		else if (input == "SEARCH" || input == "search")
 			book.search();
-		else if (user_entry == "ADD")
+		else if (input == "ADD" || input == "add")
 			book.add();
 		else
 			std::cout << "Options available: ADD, SEARCH or EXIT" << std::endl;
-		user_entry = "";
 	}
 	return (EXIT_SUCCESS);
 }
