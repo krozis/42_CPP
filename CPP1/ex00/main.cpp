@@ -8,7 +8,8 @@ int main(void)
 {
 	Zombie	*zob = newZombie("Zob");
 
-	zob->announce();
+	if (zob)
+		zob->announce();
 	randomChump("the Bourrinator");
 	delete zob;
 	return (EXIT_SUCCESS);
