@@ -6,11 +6,14 @@
 class ClapTrap
 {
 	public:
-		ClapTrap(std::string name);
+		ClapTrap();
+		ClapTrap(std::string const name);
 		ClapTrap(ClapTrap const &toCopy);
-		~ClapTrap();
+		virtual ~ClapTrap();
+
 		ClapTrap	&operator=(ClapTrap const &toAssign);
-		void	attack(const std::string& target);
+
+		void	attack(std::string const &target);
 		void	takeDamage(unsigned int amount);
 		void	beRepaired(unsigned int amount);
 

@@ -4,6 +4,15 @@
  *		CREATOR / DESTRUCTOR	*
  ********************************/
 
+ClapTrap::ClapTrap()
+{
+	_name = "CL4P-TP";
+	_hp = 10;
+	_mp = 10;
+	_dmg = 0;
+	std::cout << "Default constructor for ClapTrap" << std::endl;
+}
+
 ClapTrap::ClapTrap(std::string name): _name(name), _hp(10), _mp(10), _dmg(0)
 {
 	std::cout << "ClapTrap " << _name << " has been created" << std::endl;
@@ -31,6 +40,7 @@ ClapTrap	&ClapTrap::operator=(ClapTrap const &toAssign)
 		_hp = toAssign._hp;
 		_mp = toAssign._mp;
 		_dmg = toAssign._dmg;
+		std::cout << "ClapTrap Assignement operator called" << std::endl;
 	}
 	return (*this);
 }
@@ -39,7 +49,7 @@ ClapTrap	&ClapTrap::operator=(ClapTrap const &toAssign)
  *			PUBLIC	 			*
  ********************************/
 
-void	ClapTrap::attack(const std::string& target)
+void	ClapTrap::attack(std::string const &target)
 {
 	if (_mp && _hp)
 	{

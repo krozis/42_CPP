@@ -48,7 +48,7 @@ ScavTrap	&ScavTrap::operator=(ScavTrap const &toAssign)
  *			PUBLIC	 			*
  ********************************/
 
-void	ScavTrap::attack(const std::string& target)
+void	ScavTrap::attack(std::string const &target)
 {
 	if (_mp && _hp)
 	{
