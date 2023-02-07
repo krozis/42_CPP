@@ -3,13 +3,13 @@
 
 #include <iostream>
 
-class Claptrap
+class ClapTrap
 {
 	public:
-		Claptrap(std::string name);
-		Claptrap(Claptrap const &toCopy);
-		~Claptrap();
-		Claptrap	&operator=(Claptrap const &toAssign);
+		ClapTrap(std::string name);
+		ClapTrap(ClapTrap const &toCopy);
+		~ClapTrap();
+		ClapTrap	&operator=(ClapTrap const &toAssign);
 		void	attack(const std::string& target);
 		void	takeDamage(unsigned int amount);
 		void	beRepaired(unsigned int amount);

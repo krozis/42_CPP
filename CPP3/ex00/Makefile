@@ -15,7 +15,7 @@ STDFLAG	=	-std=c++98
 
 # Folders and Sources
 SRCS	=	main.cpp\
-			Claptrap.cpp\
+			ClapTrap.cpp\
 
 OBJ		=	$(SRCS:.cpp=.o)
 

@@ -1,19 +1,19 @@
-#include "Claptrap.hpp"
+#include "ClapTrap.hpp"
 #include <cstdlib>
 
 int	main(void)
 {
-	Claptrap	clap("Zero");
-	Claptrap	clop("Maya");
+	ClapTrap	clap("Zero");
+	ClapTrap	clop("Maya");
 	std::string	enemy("Handsome Jack");
 
-	std::cout << "------ ATTACKING -------" << std::endl;
-	for (int i = 1; i <= 10; i++)
+	std::cout << "\n------ ATTACKING -------" << std::endl;
+	for (int i = 1; i <= 11; i++)
 		clap.attack(enemy);
-	std::cout << "------ TAKING DMG -------" << std::endl;
+	std::cout << "\n------ TAKING DMG -------" << std::endl;
 	for (int i = 1; i <= 10; i++)
 		clap.takeDamage(i);
-	std::cout << "------ REPEARING -------" << std::endl;
+	std::cout << "\n------ REPEARING -------" << std::endl;
 	for (int i = 1; i <= 10; i++)
 	{
 		clop.takeDamage(i);
