@@ -3,7 +3,6 @@
 #include "FragTrap.hpp"
 #include "DiamondTrap.hpp"
 #include <cstdlib>
-#include <string>
 
 #define DEFAULT "\033[39m"
 #define BLACK "\033[30m"
