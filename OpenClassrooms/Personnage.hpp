@@ -1,5 +1,5 @@
-#ifndef PERSONNAGE_CLASS_H
-# define PERSONNAGE_CLASS_H
+#ifndef PERSONNAGE_H
+# define PERSONNAGE_H
 
 # include <string>
 # include <iostream>

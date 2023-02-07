@@ -10,6 +10,8 @@ STDFLAG	=	-std=c++98
 # Folders and Sources
 SRCS	=	test.cpp\
 			Duree.cpp\
+			Dude.cpp\
+			Warrior.cpp\
 
 
 $(NAME):	$(SRCS)
