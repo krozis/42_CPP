@@ -19,13 +19,20 @@ SRCS	=	main.cpp\
 			HumanA.cpp\
 			HumanB.cpp\
 
-$(NAME):	$(SRCS)
+OBJ		=	$(SRCS:.cpp=.o)
+
+%.o:%.cpp
+	@$(CC) $(FLAGS) -o $@ -c $<
+
+$(NAME):	$(OBJ)
 		@$(CC) $(FLAGS) -o $@ $^
 		@echo $(G)$(BOLD)$(NAME) $(X)$(G)created$(X)
 
 all:	$(NAME)
 
 clean:
+		@rm -rf $(OBJ);
+		@echo $(R)Object files removed $(X)
 
 fclean:	clean
 		@rm -rf $(NAME)
