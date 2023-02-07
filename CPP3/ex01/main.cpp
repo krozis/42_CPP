@@ -2,34 +2,39 @@
 #include "ScavTrap.hpp"
 #include <cstdlib>
 
+#define DEFAULT "\033[39m"
+#define BLACK "\033[30m"
+#define GREY "\033[90m"
+#define RED "\033[31m"
+#define CYAN "\033[36m"
+#define GREEN "\033[32m"
+#define YELLOW "\033[33m"
+#define BLUE "\033[94m"
+#define MAGENTA "\033[35m"
+
 int	main(void)
 {
-	ClapTrap	clap("Zero");
-	ScavTrap	gun("Sanglier of Cornouailles");
-	ScavTrap	tank("Jojo the asticot");
-	std::string	enemy("Handsome Jack");
+	ScavTrap	tata;
+	ScavTrap	toto("Jojo_the_asticot");
+	ScavTrap	titi("Sanglier_of_Cornouailles");
+	std::string	tutu_the_target("Marx Lavoine");
 
-	std::cout << "\n------ CLAPTRAP ATTACKING -------" << std::endl;
-	for (int i = 1; i <= 15; i++)
-		clap.attack(enemy);
-	std::cout << "\n------CLAPTRAP REPEARING & TAKING DMG -------" << std::endl;
-	for (int i = 1; i <= 10; i++)
+	std::cout << RED << std::endl << "--- Special abilities ---" << std::endl << std::endl;
+	toto.guardGate();
+
+	std::cout << BLUE <<std::endl << "--- Attacks ---" << std::endl << std::endl;
+	for (int i = 1; i < 52; i++)
+		toto.attack(tutu_the_target);
+
+	std::cout << GREEN <<std::endl << "--- Damages && Repears ---" << std::endl << std::endl;
+	for (int i = 1; i < 52; i++)
 	{
-		clap.takeDamage(i);
-		if (i % 2)
-			clap.beRepaired(i - 1);
+		titi.takeDamage(i);
+		titi.beRepaired(i - 1);
 	}
-	std::cout << "\n------ SCAVTRAP GATE KEEPER -------" << std::endl;
-		tank.guardGate();
-	std::cout << "\n------ SCAVTRAP ATTACKING -------" << std::endl;
-	for (int i = 1; i <= 53; i++)
-		gun.attack(enemy);
-	std::cout << "\n------ SCAVTRAP REPEARING -------" << std::endl;
-	for (int i = 1; i <= 25; i++)
-	{
-		tank.takeDamage(i);
-		if (i % 2)
-			tank.beRepaired(i - 1);
-	}
+	std::cout << YELLOW;
+	toto.beRepaired(20);
+
+	std::cout << DEFAULT << std::endl;
 	return (EXIT_SUCCESS);
 }
