@@ -29,7 +29,7 @@ Point	&Point::operator=(Point const &toAssign)
 }
 
 /********************************
- !*			PUBLIC	 			*
+ *			PUBLIC	 			*
  ********************************/
 
 Fixed	Point::getX() const
