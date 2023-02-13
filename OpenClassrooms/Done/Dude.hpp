@@ -1,5 +1,5 @@
-#ifndef DUDE_H
-# define DUDE_H
+#ifndef DUDE_HPP
+# define DUDE_HPP
 
 #include <iostream>	
 

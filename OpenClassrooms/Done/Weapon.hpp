@@ -1,5 +1,5 @@
-#ifndef WEAPON_CLASS_H
-# define WEAPON_CLASS_H
+#ifndef WEAPON_CLASS_HPP
+# define WEAPON_CLASS_HPP
 
 # include <string>
 # include <iostream>

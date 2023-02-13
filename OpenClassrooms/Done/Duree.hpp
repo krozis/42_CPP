@@ -1,5 +1,5 @@
-#ifndef DUREE_H
-# define DUREE_H
+#ifndef DUREE_HPP
+# define DUREE_HPP
 # include <iostream>
 
 class Duree

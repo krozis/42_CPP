@@ -1,5 +1,5 @@
-#ifndef WARRIOR_H
-# define WARRIOR_H
+#ifndef WARRIOR_HPP
+# define WARRIOR_HPP
 
 # include "Dude.hpp"
 

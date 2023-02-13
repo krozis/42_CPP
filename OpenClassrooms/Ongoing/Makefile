@@ -2,23 +2,26 @@
 NAME		=	EXEC
 
 #Colors
-R			=	"\033[31m"
-G			=	"\033[32m"
-X			=	"\033[0m"
-BOLD		=	"\033[1m"
-UP			=	"\033[A"
-CUT			=	"\033[K"
+R			=	"\e[31m"
+G			=	"\e[32m"
+X			=	"\e[0m"
+BOLD		=	"\e[1m"
+UP			=	"\e[A"
+CUT			=	"\e[K"
 
-# Compilation
+# Compilation && commands
 CC		=	c++
 FLAGS	=	$(WFLAGS) $(STDFLAG)
 WFLAGS	=	-Wall -Wextra -Werror
 STDFLAG	=	-std=c++98
+RM		=	rm -rf
 
 # Folders and Sources
-SRC		=	main_figures.cpp\
-			Figure.cpp\
-			Triangle.cpp\
+SRC		=	main.cpp\
+			Vehicule.cpp\
+			Car.cpp\
+			Moto.cpp\
+
 
 OBJ	=	$(SRC:.cpp=.o)
 
@@ -31,9 +34,10 @@ $(NAME):	$(OBJ)
 		@$(CC) $(FLAGS) -o $@ $^
 
 clean:
+		@$(RM) $(OBJ)
 
 fclean:	clean
-		@rm -rf $(NAME)
+		@$(RM) $(NAME)
 
 re:	fclean all
 

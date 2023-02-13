@@ -1,18 +1,18 @@
-#ifndef FIGURE_H
-# define FIGURE_H
+#ifndef FIGURE_HPP
+# define FIGURE_HPP
 
 # include <iostream>
 # include <cmath>
 
-# define X "\033[0m"
-# define BLACK "\033[30m"
-# define GREY "\033[90m"
-# define RED "\033[31m"
-# define CYAN "\033[36m"
-# define GREEN "\033[32m"
-# define YELLOW "\033[33m"
-# define BLUE "\033[94m"
-# define MAGENTA "\033[35m"
+# define X "\e[0m"
+# define BLACK "\e[30m"
+# define GREY "\e[90m"
+# define RED "\e[31m"
+# define CYAN "\e[36m"
+# define GREEN "\e[32m"
+# define YELLOW "\e[33m"
+# define BLUE "\e[94m"
+# define MAGENTA "\e[35m"
 
 class Figure
 {

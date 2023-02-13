@@ -1,5 +1,5 @@
-#ifndef PERSONNAGE_H
-# define PERSONNAGE_H
+#ifndef PERSONNAGE_HPP
+# define PERSONNAGE_HPP
 
 # include <string>
 # include <iostream>
