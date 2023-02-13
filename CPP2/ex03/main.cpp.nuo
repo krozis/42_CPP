@@ -10,7 +10,7 @@
 # define nl " \n"
 // colors
 # define CYAN	"\x1b[36m"
-# define YELL	"\033[0;33m"
+# define YELL	"\e[0;33m"
 # define REST	"\x1b[0m"
 # define GREEN	"\x1b[32m"
 # define RED	"\x1b[31m"

@@ -2,10 +2,10 @@
 NAME	=	brain
 
 #Colors
-R			=	"\033[31m"
-G			=	"\033[32m"
-X			=	"\033[0m"
-BOLD		=	"\033[1m"
+R			=	"\e[31m"
+G			=	"\e[32m"
+X			=	"\e[0m"
+BOLD		=	"\e[1m"
 
 # Compilation
 CC		=	c++

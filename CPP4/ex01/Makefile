@@ -1,5 +1,5 @@
 # Name
-NAME	=	claptrap
+NAME	=	animals
 
 #Colors
 R			=	"\e[31m"
@@ -15,12 +15,17 @@ STDFLAG	=	-std=c++98
 
 # Folders and Sources
 SRCS	=	main.cpp\
-			ClapTrap.cpp\
+			Animal.cpp\
+			Dog.cpp\
+			Cat.cpp\
+			WrongAnimal.cpp\
+			WrongCat.cpp\
+			Brain.cpp\
 
 OBJ		=	$(SRCS:.cpp=.o)
 
-%.o:%.cpp
-	@$(CC) $(FLAGS) -o $@ -c $<
+%.o:	%.cpp %.hpp
+		@$(CC) $(FLAGS) -o $@ -c $<
 
 $(NAME):	$(OBJ)
 		@$(CC) $(FLAGS) -o $@ $^

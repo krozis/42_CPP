@@ -1,12 +1,12 @@
-#ifndef WRONGANIMAL_H
-# define WRONGANIMAL_H
+#ifndef WRONGANIMAL_HPP
+# define WRONGANIMAL_HPP
 
 # include <iostream>
 
-# define X "\033[0m"
-# define ITALIC "\033[3m"
-# define BLUE "\033[94m"
-# define MAGENTA "\033[35m"
+# define X "\e[0m"
+# define ITALIC "\e[3m"
+# define BLUE "\e[94m"
+# define MAGENTA "\e[35m"
 
 
 class WrongAnimal

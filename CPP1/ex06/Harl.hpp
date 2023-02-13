@@ -1,5 +1,5 @@
-#ifndef HARL_H
-# define HARL_H
+#ifndef HARL_HPP
+# define HARL_HPP
 
 # include <iostream>
 
