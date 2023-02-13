@@ -12,14 +12,13 @@ CC		=	c++
 FLAGS	=	$(WFLAGS) $(STDFLAG)
 WFLAGS	=	-Wall -Wextra -Werror
 STDFLAG	=	-std=c++98
-RM		=	rm -rf
 
 # Folders and Sources
 SRCS	=	main.cpp\
 			Animal.cpp\
 			Dog.cpp\
 			Cat.cpp\
-#			WrongAnimal.cpp\
+			WrongAnimal.cpp\
 			WrongCat.cpp\
 
 OBJ		=	$(SRCS:.cpp=.o)
@@ -34,11 +33,11 @@ $(NAME):	$(OBJ)
 all:	$(NAME)
 
 clean:
-		@$(RM) $(OBJ);
+		@rm -rf $(OBJ);
 		@echo $(R)Object files removed $(X)
 
 fclean:	clean
-		@$(RM) $(NAME)
+		@rm -rf $(NAME)
 		@echo $(R)$(BOLD)$(NAME) $(X)$(R)removed $(X)
 
 re:	fclean all

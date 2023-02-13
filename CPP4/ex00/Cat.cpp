@@ -6,26 +6,27 @@
 
 Cat::Cat()
 {
-	std::cout << GREY << "Cat's default constructor called" << X << std::endl;
+	std::cout << CYAN << "Default constructor for cat instance called" << X << std::endl;
 	_type = "cat";
 }
 
 Cat::Cat(Cat const &toCopy)
 {
+	std::cout << CYAN << "Cat's copy constructor called" << X << std::endl;
 	_type = toCopy._type;
-	std::cout << GREY << "Cat's copy constructor called" << X << std::endl;
 }
 
 Cat::~Cat()
 {
-	std::cout << GREY << "Cat's destructor called" << X << std::endl;
+	std::cout << CYAN << "Cat's destructor called" << X << std::endl;
 }
 
 
 Cat	&Cat::operator=(Cat const &toAssign)
 {
+	std::cout << CYAN << "Assignement operator called for cat" << X << std::endl;
 	if (this != &toAssign)
-			_type = toAssign._type;
+		_type = toAssign._type;
 	return (*this);
 }
 
@@ -35,10 +36,13 @@ Cat	&Cat::operator=(Cat const &toAssign)
 
 void	Cat::makeSound() const
 {
-	std::cout << GREY ITALIC << "meeeoooooow !" << X << std::endl;
+	std::cout << ITALIC CYAN << "meeeeow meow... meow? ( #PURRKWAAA??? )" << X << std::endl;
 }
 
-std::string const	Cat::getType() const
-{
-	return (_type);
-}
+/********************************
+ *			PRIVATE	 			*
+ ********************************/
+
+/********************************
+ *			OPERATORS 			*
+ ********************************/
