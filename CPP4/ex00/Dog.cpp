@@ -36,7 +36,7 @@ Dog	&Dog::operator=(Dog const &toAssign)
 
 void	Dog::makeSound() const
 {
-	std::cout << ITALIC YELLOW << "wooof woof woof! Woof! ( #BARFATTACKF)" << X << std::endl;
+	std::cout << ITALIC YELLOW << "wooof woof woof! Woof! ( #BARFATTACKF )" << X << std::endl;
 }
 
 /********************************

@@ -43,16 +43,31 @@ int	main()
 	salad->makeSound();
 	x_files->makeSound();
 
+	std::cout << BOLD << "\n------ EXAMPLE FROM SUBJECT ------\n" << X << std::endl;
+	
+	const Animal*	meta = new Animal();
+	const Animal*	j = new Dog();
+	const Animal*	i = new Cat();
+	std::cout << j->getType() << " " << std::endl;
+	std::cout << i->getType() << " " << std::endl;
+	i->makeSound(); //will output the cat sound!
+	j->makeSound();
+	meta->makeSound();
 
-	std::cout << BOLD << "\n------ DESTRUCTION ------\n" << std::endl;
+	std::cout << BOLD << "\n------ DESTRUCTION ------\n" << X << std::endl;
 	std::cout << "Animal" << std::endl;
 	delete (ptr);
+	delete (meta);
 	std::cout << "\nDog" << std::endl;
 	delete (ptr1);
 	delete (ptr2);
+	delete (j);
 	std::cout << "\nCats" << std::endl;
 	delete (salad);
 	delete (x_files);
+	delete (i);
+
 	std::cout << "\nNon dynamic allocation:" << std::endl;
+
 	return (EXIT_SUCCESS);
 }

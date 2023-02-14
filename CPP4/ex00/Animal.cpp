@@ -40,6 +40,11 @@ void	Animal::makeSound() const
 	std::cout << ITALIC GREY << "you hear a random animal sound, far away..." << X << std::endl;
 }
 
+std::string	Animal::getType() const
+{
+	return (_type);
+}
+
 /********************************
  *			PRIVATE	 			*
  ********************************/
