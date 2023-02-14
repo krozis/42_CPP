@@ -1,5 +1,5 @@
 # Name
-NAME	=	animals
+NAME	=	animals_with_brain
 
 #Colors
 R			=	"\e[31m"
@@ -12,6 +12,7 @@ CC		=	c++
 FLAGS	=	$(WFLAGS) $(STDFLAG)
 WFLAGS	=	-Wall -Wextra -Werror
 STDFLAG	=	-std=c++98
+RM		=	rm -rf
 
 # Folders and Sources
 SRCS	=	main.cpp\
@@ -34,11 +35,11 @@ $(NAME):	$(OBJ)
 all:	$(NAME)
 
 clean:
-		@rm -rf $(OBJ);
+		@$(RM) $(OBJ);
 		@echo $(R)Object files removed $(X)
 
 fclean:	clean
-		@rm -rf $(NAME)
+		@$(RM) $(NAME)
 		@echo $(R)$(BOLD)$(NAME) $(X)$(R)removed $(X)
 
 re:	fclean all

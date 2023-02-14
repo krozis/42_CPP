@@ -6,26 +6,26 @@
 
 WrongCat::WrongCat()
 {
-	std::cout << MAGENTA << "WrongCat's default constructor called" << X << std::endl;
-	_type = "wrong-cat";
+	std::cout << ORANGE << "Default constructor for WrongCat called" << X << std::endl;
+	_type = "wrong cat";
 }
 
 WrongCat::WrongCat(WrongCat const &toCopy)
 {
+	std::cout << ORANGE << "WrongCat's copy constructor called" << X << std::endl;
 	_type = toCopy._type;
-	std::cout << MAGENTA << "Cat's copy constructor called" << X << std::endl;
 }
 
 WrongCat::~WrongCat()
 {
-	std::cout << MAGENTA << "Cat's destructor called" << X << std::endl;
+	std::cout << ORANGE << "Destructor for WrongCat called" << X << std::endl;
 }
-
 
 WrongCat	&WrongCat::operator=(WrongCat const &toAssign)
 {
+	std::cout << ORANGE << "WrongCat's assignement operator called" << X << std::endl;
 	if (this != &toAssign)
-			_type = toAssign._type;
+		_type = toAssign._type;
 	return (*this);
 }
 
@@ -35,10 +35,13 @@ WrongCat	&WrongCat::operator=(WrongCat const &toAssign)
 
 void	WrongCat::makeSound() const
 {
-	std::cout << MAGENTA ITALIC << "miaou miaou miaother furrker!" << X << std::endl;
+	std::cout << ITALIC ORANGE << "blup bip blop! ( #ThisIsSoWrong )" << X << std::endl;
 }
 
-std::string const	WrongCat::getType() const
-{
-	return (_type);
-}
+/********************************
+ *			PRIVATE	 			*
+ ********************************/
+
+/********************************
+ *			OPERATORS 			*
+ ********************************/

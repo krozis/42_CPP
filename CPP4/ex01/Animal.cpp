@@ -4,41 +4,55 @@
  *		CREATOR / DESTRUCTOR	*
  ********************************/
 
-Animal::Animal(): _type("random animal")
+Animal::Animal(): _type("animal")
 {
-	std::cout << WHITE << "Animal's "
-	<< "default constructor called with type " << BOLD << _type << X << std::endl;
+	std::cout << GREY << "Default constructor for an Animal instance called" << X << std::endl;
+}
+
+Animal::Animal(std::string const &type): _type(type)
+{
+	std::cout << GREY << "Constructor for "<< _type << " typed Animal instance called" << X << std::endl;
 }
 
 Animal::Animal(Animal const &toCopy)
 {
-	*this = toCopy;
-	std::cout << WHITE << "Animal's copy constructor called for type" << BOLD << _type << X << std::endl;
+	std::cout << GREY << "copy constructor called for an Animal called" << X << std::endl;
+	_type = toCopy._type;
 }
 
 Animal::~Animal()
 {
-	std::cout << WHITE << "Animal's destructor called" << X << std::endl;
+	std::cout << GREY << "Animal's Destructor called" << X << std::endl;
 }
 
 
 Animal	&Animal::operator=(Animal const &toAssign)
 {
+	std::cout << GREY << "Assignement operator called for an Animal" << X << std::endl;
 	if (this != &toAssign)
 		_type = toAssign._type;
 	return (*this);
+	
 }
 
 /********************************
  *			PUBLIC	 			*
  ********************************/
 
-std::string	const Animal::getType() const
+void	Animal::makeSound() const
+{
+	std::cout << ITALIC GREY << "you hear a random animal sound, far away..." << X << std::endl;
+}
+
+std::string	Animal::getType() const
 {
 	return (_type);
 }
 
-void	Animal::makeSound() const
-{
-	std::cout << WHITE ITALIC << "random animal sound" << X << std::endl;
-}
+/********************************
+ *			PRIVATE	 			*
+ ********************************/
+
+/********************************
+ *			OPERATORS 			*
+ ********************************/

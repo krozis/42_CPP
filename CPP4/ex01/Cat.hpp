@@ -2,6 +2,7 @@
 # define CAT_HPP
 
 # include "Animal.hpp"
+# include "Brain.hpp"
 
 class Cat: public Animal
 {
@@ -11,10 +12,10 @@ class Cat: public Animal
 		~Cat();
 		Cat	&operator=(Cat const &toAssign);
 
-		std::string	const	getType() const;
-		void				makeSound() const;
+		void	makeSound() const;
 
 	private:
+		Brain	*_brain;
 
 };
 

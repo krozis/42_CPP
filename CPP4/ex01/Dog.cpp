@@ -4,17 +4,16 @@
  *		CREATOR / DESTRUCTOR	*
  ********************************/
 
-Dog::Dog()
+Dog::Dog(): Animal("dog")
 {
-	std::cout << YELLOW << "Dog's default constructor called" << X << std::endl;
-	_type = "dog";
+	std::cout << YELLOW << "Default constructor for dog instance called" << X << std::endl;
 	_brain = new Brain;
 }
 
-Dog::Dog(Dog const &toCopy)
+Dog::Dog(Dog const &toCopy): Animal(toCopy)
 {
-	_type = toCopy._type;
 	std::cout << YELLOW << "Dog's copy constructor called" << X << std::endl;
+	_brain = new Brain(*(toCopy._brain));
 }
 
 Dog::~Dog()
@@ -23,11 +22,11 @@ Dog::~Dog()
 	delete (_brain);
 }
 
-
 Dog	&Dog::operator=(Dog const &toAssign)
 {
-	if (this != &toAssign)
-		_type = toAssign._type;
+	std::cout << YELLOW << "Assignement operator called for dog" << X << std::endl;
+	Animal::operator=(toAssign);
+	*_brain = *toAssign._brain;
 	return (*this);
 }
 
@@ -37,10 +36,13 @@ Dog	&Dog::operator=(Dog const &toAssign)
 
 void	Dog::makeSound() const
 {
-	std::cout << ITALIC YELLOW  << "woooof woof woof !" << X << std::endl;
+	std::cout << ITALIC YELLOW << "wooof woof woof! Woof! ( #BARFATTACKF )" << X << std::endl;
 }
 
-std::string const	Dog::getType() const
-{
-	return (_type);
-}
+/********************************
+ *			PRIVATE	 			*
+ ********************************/
+
+/********************************
+ *			OPERATORS 			*
+ ********************************/

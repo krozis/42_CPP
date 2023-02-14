@@ -4,25 +4,24 @@
  *		CREATOR / DESTRUCTOR	*
  ********************************/
 
-WrongAnimal::WrongAnimal(): _type("wrong-animal")
+WrongAnimal::WrongAnimal(): _type("wrong animal")
 {
-	std::cout << BLUE << "WrongAnimal's destructor called" << X << std::endl;
+	std::cout << PINK << "Default constructor for WrongAnimal called" << X << std::endl;
 }
 
-WrongAnimal::WrongAnimal(WrongAnimal const &toCopy)
+WrongAnimal::WrongAnimal(WrongAnimal const &toCopy): _type(toCopy._type)
 {
-	_type = toCopy._type;
-	std::cout << BLUE << "WrongAnimal's copy constructor called" << X << std::endl;
+	std::cout << PINK << "copy constructor called for WrongAnimal" << X << std::endl;
 }
 
 WrongAnimal::~WrongAnimal()
 {
-	std::cout << BLUE << "WrongAnimal's destructor called" << X << std::endl;
+	std::cout << PINK << "Destructor for WrongAnimal called" << X << std::endl;	
 }
-
 
 WrongAnimal	&WrongAnimal::operator=(WrongAnimal const &toAssign)
 {
+	std::cout << PINK << "WrongAnimal's assignement operator called" << X << std::endl;
 	if (this != &toAssign)
 		_type = toAssign._type;
 	return (*this);
@@ -32,12 +31,21 @@ WrongAnimal	&WrongAnimal::operator=(WrongAnimal const &toAssign)
  *			PUBLIC	 			*
  ********************************/
 
-std::string	const WrongAnimal::getType() const
+void	WrongAnimal::makeSound() const
+{
+	std::cout << ITALIC PINK << "weird fake animal sound" << X << std::endl;
+}
+
+std::string	WrongAnimal::getType() const
 {
 	return (_type);
 }
 
-void	WrongAnimal::makeSound() const
-{
-	std::cout << BLUE ITALIC << "random wrong-animal sound" << X << std::endl;
-}
+
+/********************************
+ *			PRIVATE	 			*
+ ********************************/
+
+/********************************
+ *			OPERATORS 			*
+ ********************************/

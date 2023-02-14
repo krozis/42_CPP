@@ -11,8 +11,7 @@ class WrongCat: public WrongAnimal
 		~WrongCat();
 		WrongCat	&operator=(WrongCat const &toAssign);
 
-		std::string	const	getType() const;
-		void				makeSound() const;
+		void	makeSound() const;
 
 	private:
 

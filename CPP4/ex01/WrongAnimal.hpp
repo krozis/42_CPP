@@ -1,13 +1,7 @@
 #ifndef WRONGANIMAL_HPP
 # define WRONGANIMAL_HPP
 
-# include <iostream>
-
-# define X "\e[0m"
-# define ITALIC "\e[3m"
-# define BLUE "\e[94m"
-# define MAGENTA "\e[35m"
-
+#include "cpp_pool.hpp"
 
 class WrongAnimal
 {
@@ -17,11 +11,11 @@ class WrongAnimal
 		~WrongAnimal();
 		WrongAnimal	&operator=(WrongAnimal const &toAssign);
 
-		std::string const getType() const;
-		void	makeSound() const;
+		void		makeSound() const;
+		std::string	getType() const;
 
 	protected:
-		std::string _type;
+		std::string	_type;
 
 	private:
 
