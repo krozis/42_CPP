@@ -3,6 +3,8 @@
 #include "Animal.hpp"
 #include "Dog.hpp"
 #include "Cat.hpp"
+#include "WrongAnimal.hpp"
+#include "WrongCat.hpp"
 
 int	main()
 {
@@ -54,6 +56,14 @@ int	main()
 	j->makeSound();
 	meta->makeSound();
 
+	std::cout << BOLD << "\n------ EXAMPLE FROM SUBJECT WITH WRONG ANIMAL------\n" << X << std::endl;
+	
+	const WrongAnimal*	wrong = new WrongAnimal();
+	const WrongAnimal*	k = new WrongCat();
+	std::cout << k->getType() << " " << std::endl;
+	k->makeSound(); //will output the cat sound!
+	wrong->makeSound();
+
 	std::cout << BOLD << "\n------ DESTRUCTION ------\n" << X << std::endl;
 	std::cout << "Animal" << std::endl;
 	delete (ptr);
@@ -66,6 +76,9 @@ int	main()
 	delete (salad);
 	delete (x_files);
 	delete (i);
+	std::cout << "\nWrongAnimal" << std::endl;
+	delete (wrong);
+	delete (k);
 
 	std::cout << "\nNon dynamic allocation:" << std::endl;
 
