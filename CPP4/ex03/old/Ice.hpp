@@ -1,9 +1,9 @@
 #ifndef ICE_HPP
 # define ICE_HPP
 
-# include "AMateria.hpp"
+# include "cpp_pool.hpp"
 
-class ICharacter;
+class AMateria;
 
 class Ice: public AMateria
 {
@@ -14,7 +14,6 @@ class Ice: public AMateria
 		Ice	&operator=(Ice const &toAssign);
 
 		AMateria	*clone() const;
-		void		use(ICharacter &target) const;
 
 	private:
 

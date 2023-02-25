@@ -1,24 +1,36 @@
-#include "cpp_pool.hpp"
+#include "main.hpp"
 
 int	main()
 {
 	std::cout << BOLD UNDERLINED << "\n------ CREATORS --------\n" << X << std::endl;
-	AMateria	*t_cure;
-	AMateria	*t_ice;
-	Ice			t;
+	AMateria	*a_ice;
+	Ice			i;
+	AMateria	*a_cure;
 	Cure		c;
-
-	std::cout << BOLD UNDERLINED << "\n------ CLONE + GETTYPE --------\n" << X << std::endl;
-	t_ice = t.clone();
-	std::cout << "type is " << t_ice->getType() << std::endl;
+	Character	gus("gustave");
+	ICharacter	*toto;
+	
+	std::cout << BOLD UNDERLINED << "\n------ MATERIA CLONE + GETTYPE --------\n" << X << std::endl;
+	a_ice = i.clone();
+	std::cout << "newly created materia's type is " << a_ice->getType() << std::endl;
 	BACKLINE;
-	t_cure = c.clone();
-	std::cout << "type is " << t_cure->getType() << std::endl;
+	a_cure = c.clone();
+	std::cout << "newly created materia's type is " << a_cure->getType() << std::endl;
+	BACKLINE;
 
+	std::cout << BOLD UNDERLINED << "\n------ CHARACTER TESTS --------\n" << X << std::endl;
+	gus.equip(&i);	
+	toto = new Character(gus);
+	toto->use(0, gus);
+	toto->unequip(0);
+	toto->unequip(0);
+	gus.use(0, gus);
 	std::cout << BOLD UNDERLINED << "\n------ DESTRUCTORS --------\n" << X << std::endl;
-	std::cout << UNDERLINED << "\n      dynamic      \n" << X << std::endl;
-	delete (t_ice);
-	delete (t_cure);
+	std::cout << UNDERLINED << "      dynamic      \n" << X << std::endl;
+	delete (a_ice);
+	delete (a_cure);
+	delete (toto);
 	std::cout << UNDERLINED << "\n      static      \n" << X << std::endl;
+
 	return (EXIT_SUCCESS);
 }

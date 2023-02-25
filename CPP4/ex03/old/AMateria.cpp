@@ -1,37 +1,32 @@
 #include "AMateria.hpp"
 
-//#include "ICharacter.hpp"
-
-#define COLOR "\e[90m" //GREY
-#define X "\e[0m"
-
 /********************************
  *		CREATOR / DESTRUCTOR	*
  ********************************/
 
-AMateria::AMateria()
+AMateria::AMateria(): _type("untyped")
 {
-	std::cout << COLOR << "AMateria default constructor called" << X << std::endl;
+	std::cout << GREY << "AMateria default constructor called" << X << std::endl;
 }
 
 AMateria::AMateria(std::string const &type): _type(type)
 {
-	std::cout << COLOR << "AMateria constructor called for a type " << _type << " Materia" << X << std::endl;
+	std::cout << GREY << "AMateria constructor called for a type " << _type << " Materia" << X << std::endl;
 }
 
 AMateria::AMateria(AMateria const &toCopy): _type(toCopy._type)
 {
-	std::cout << COLOR << "Copy constructor for AMateria called" << std::endl;
+	std::cout << GREY << "AMateria copy constructor called" << X << std::endl;
 }
 
 AMateria::~AMateria()
 {
-	std::cout << COLOR << "AMateria destructor called" << X << std::endl;
+	std::cout << GREY << "AMateria destructor called" << X << std::endl;
 }
 
 AMateria	&AMateria::operator=(AMateria const &toAssign)
-{
-	std::cout << COLOR << "AMateria assignement operator called" << X << std::endl;
+{	
+	std::cout << GREY << "AMateria assignement operator called" << X << std::endl;
 	if (this != &toAssign)
 		_type = toAssign._type;
 	return (*this);
@@ -41,10 +36,14 @@ AMateria	&AMateria::operator=(AMateria const &toAssign)
  *			PUBLIC	 			*
  ********************************/
 
-std::string const	&AMateria::getType() const
+std::string const &AMateria::getType() const
 {
 	return (_type);
 }
+
+/*
+	void	AMateria::use(ICharacter& target)
+*/
 
 /********************************
  *			PRIVATE	 			*

@@ -1,9 +1,9 @@
 #ifndef CURE_HPP
 # define CURE_HPP
 
+# include "cpp_pool.hpp"
 # include "AMateria.hpp"
 
-class ICharacter;
 class Cure: public AMateria
 {
 	public:
@@ -13,7 +13,7 @@ class Cure: public AMateria
 		Cure	&operator=(Cure const &toAssign);
 
 		AMateria	*clone() const;
-		void		use(ICharacter &target) const;
+
 	private:
 
 };

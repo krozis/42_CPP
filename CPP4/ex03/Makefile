@@ -18,9 +18,8 @@ RM		=	rm -rf
 SRCS	=	main.cpp\
 			AMateria.cpp\
 			Ice.cpp\
-#			Cure.cpp\
-#			ICharacter.cpp\
-#			Character.cpp\
+			Cure.cpp\
+			Character.cpp\
 
 OBJ		=	$(SRCS:.cpp=.o)
 
