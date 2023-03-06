@@ -53,10 +53,11 @@ int	main(int ac, char **av)
 	if (std::string(av[2]).size() < 1)
 		return (argError("old_word cant be an empty string"));
 	fileIn.open(av[1]);
-	if (!fileIn)
+	if (!fileIn.is_open() || fileIn.peek() == EOF)
 		return (argError("Error while opening the file."));
+	//if ()
 	fileOut.open((std::string(av[1]) + ".replace").c_str());
-	if (!fileOut)
+	if (!fileOut.is_open())
 		return (argError("Error with the output file."));
 	getContent(fileIn, content);
 	fileIn.close();
