@@ -1,5 +1,14 @@
 #include "Harl.hpp"
 
+#define X "\e[0m"
+#define BOLD "\e[1m"
+
+#define DEBUG "\e[32m"
+#define INFO "\e[33m"
+#define WARNING "\e[38;5;202m"
+#define ERROR "\e[38;5;196m"
+#define DEFAULT "\e[3m \e[90m"
+
 /********************************
  *			PRIVATE 			*
  ********************************/
@@ -16,37 +25,37 @@ static int	getLevel(std::string level)
 
 void	Harl::debug()
 {
-	std::cout << "[ DEBUG ]" << std::endl; 
-	std::cout << "I love having extra bacon for my "
+	std::cout << BOLD DEBUG << "[ DEBUG ]" << std::endl; 
+	std::cout << X DEBUG << "I love having extra bacon for my "
 	<< "7XL-double-cheese-triple-pickle-specialketchup burger. "
-	<< "I really do !" << std::endl << std::endl;
+	<< "I really do !" << X << std::endl << std::endl;
 }
 
 void	Harl::info()
 {
-	std::cout << "[ INFO ]" << std::endl; 
-	std::cout << "I cannot believe adding extra bacon costs more money. "
+	std::cout << BOLD INFO << "[ INFO ]" << std::endl; 
+	std::cout << X INFO << "I cannot believe adding extra bacon costs more money. "
 	<< "You didn’t put enough bacon in my burger ! If you did, "
-	<< "I wouldn’t be asking for more !" << std::endl << std::endl;
+	<< "I wouldn’t be asking for more !" << X << std::endl << std::endl;
 }
 
 void	Harl::warning()
 {
-	std::cout << "[ WARNING ]" << std::endl; 
-	std::cout << "I think I deserve to have some extra bacon for free." << std::endl;
+	std::cout << BOLD WARNING << "[ WARNING ]" << std::endl; 
+	std::cout << X WARNING << "I think I deserve to have some extra bacon for free." << std::endl;
 	std::cout << "I’ve been coming for years whereas you started "
-	<< "working here since last month." << std::endl << std::endl;
+	<< "working here since last month." << X << std::endl << std::endl;
 }
 
 void	Harl::error()
 {
-	std::cout << "[ ERROR ]" << std::endl; 
-	std::cout << "This is unacceptable ! I want to speak to the manager now." << std::endl << std::endl;
+	std::cout << BOLD ERROR << "[ ERROR ]" << std::endl; 
+	std::cout << "This is unacceptable ! I want to speak to the manager now." << X << std::endl << std::endl;
 }
 
 void	Harl::defaultComplain()
 {
-	std::cout << "[ Probably complaining about insignificant problems ]" << std::endl;
+	std::cout << DEFAULT << "[ Probably complaining about insignificant problems ]" << X << std::endl;
 }
 
 
