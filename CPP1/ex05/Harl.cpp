@@ -2,7 +2,6 @@
 
 #define X "\e[0m"
 #define BOLD "\e[1m"
-#define ITALIC "\e[3m"
 
 #define DEBUG "\e[32m"
 #define INFO "\e[33m"
