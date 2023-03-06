@@ -2,16 +2,27 @@
 #include <cstdlib>
 #include <limits>
 
-# define X "\e[0m"
-# define BIG "\e[1m \e[4m"
+#ifdef _WIN32
+# define CLEAR "cls"
+#elif _WIN64
+# define CLEAR "cls"
+#elif __CYGWIN__
+# define CLEAR "cls"
+#else
+# define CLEAR "clear"
+#endif
+
+#define X "\e[0m"
+#define BIG "\e[1m \e[4m"
+#define RED "\e[31m"
 
 Zombie* zombieHorde(int N, std::string name);
 
 int main(void)
 {
 	int	nb = 0;
-	system("clear");
-	std::cout << BIG << "\nHOW MANY ZOMBIES\n" << X << std::endl;
+	system(CLEAR);
+	std::cout << BIG << "HOW MANY ZOMBIES\n" << X << std::endl;
 	while (nb <= 0 || nb > 100)
 	{
 		std::cout << "How many zombies in the hords? (min 1, max 100)" << std::endl;
@@ -23,8 +34,8 @@ int main(void)
 		}
 		else if (nb > 0 && nb < 101)
 		{
-			system("clear");
-			std::cout << nb << " zombies will be created." << std::endl;
+			system(CLEAR);
+			std::cout << BIG RED << nb << " zombies will be created." << X << std::endl;
 			break ;
 		}
 	}
