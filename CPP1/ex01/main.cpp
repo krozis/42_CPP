@@ -37,7 +37,7 @@ int main(void)
 	std::cout << BIG << "\nGROWLINGS\n" << X << std::endl;
 	for (int i = 0; i < nb; i++)
 		zob[i].announce();
-	std::cout << BIG << "\nDestruction OF ZOMBIES\n" << X << std::endl;
+	std::cout << BIG << "\nDESTRUCTION OF ZOMBIES\n" << X << std::endl;
 	delete [] zob;
 	return (EXIT_SUCCESS);
 }
