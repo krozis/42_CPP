@@ -19,7 +19,7 @@ Fixed::Fixed(): _value(0)
 
 Fixed::Fixed(Fixed const &toCopy)
 {
-	std::cout << COPY << "Copy constructor called" << std::endl;
+	std::cout << COPY << "Copy constructor called" << X << std::endl;
 	*this = toCopy;
 }
 
@@ -31,7 +31,7 @@ Fixed::~Fixed()
 
 Fixed	&Fixed::operator=(Fixed const &toAssign)
 {
-	std::cout << ASSIGN << "Copy assignment operator called" << X << X << std::endl;
+	std::cout << ASSIGN << "Copy assignment operator called" << X << std::endl;
 	if (this != &toAssign)
 			_value = toAssign.getRawBits();
 	return (*this);
