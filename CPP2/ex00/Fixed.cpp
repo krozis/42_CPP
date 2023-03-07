@@ -1,6 +1,5 @@
 #include "Fixed.hpp"
 
-
 #define X "\e[0m"
 #define CONSTR "\e[38;5;202m"
 #define DESTR "\e[33m"
