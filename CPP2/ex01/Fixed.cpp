@@ -1,42 +1,50 @@
 #include "Fixed.hpp"
 
+#define X "\e[0m"
+#define CONSTR "\e[38;5;202m"
+#define ICONSTR "\e[32m"
+#define FCONSTR "\e[38;5;114m"
+#define DESTR "\e[33m"
+#define COPY "\e[38;5;99m"
+#define ASSIGN "\e[38;5;162m"
+
 /********************************
  *		CREATOR / DESTRUCTOR	*
  ********************************/
 
 Fixed::Fixed(): _value(0)
 {
-	std::cout << "Default constructor called" << std::endl;
+	std::cout << CONSTR << "Default constructor called" << X << std::endl;
 }
 
 Fixed::Fixed(int const value)
 {
-	std::cout << "Int constructor called" << std::endl;
+	std::cout << ICONSTR << "Int constructor called" << X << std::endl;
 	this->setRawBits(0);
 	_value = value << _bits;
 }
 
 Fixed::Fixed(float const value)
 {
-	std::cout << "Float constructor called" << std::endl;
+	std::cout << FCONSTR << "Float constructor called" << X << std::endl;
 	_value = roundf(value * (pow(2, _bits)));
 }
 
 Fixed::Fixed(Fixed const &toCopy)
 {
-	std::cout << "Copy constructor called" << std::endl;
-	_value = toCopy.getRawBits();
+	std::cout << COPY << "Copy constructor called" << X << std::endl;
+	*this = toCopy;
 }
 
 Fixed::~Fixed()
 {
-	std::cout << "Destructor called" << std::endl;
+	std::cout << DESTR << "Destructor called" << X << std::endl;
 }
 
 
 Fixed	&Fixed::operator=(Fixed const &toAssign)
 {
-	std::cout << "Copy assignment operator called" << std::endl;
+	std::cout << ASSIGN << "Copy assignment operator called" << X << std::endl;
 	if (this != &toAssign)
 			_value = toAssign.getRawBits();
 	return (*this);
