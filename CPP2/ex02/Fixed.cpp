@@ -1,4 +1,5 @@
 #include "Fixed.hpp"
+#include <cmath>
 
 /********************************
  *		CREATOR / DESTRUCTOR	*
@@ -72,7 +73,9 @@ int		Fixed::toInt() const
 	return (_value >> _bits);
 }
 
-
+/**
+ * @brief Returns the minimum between the two given Fixed.
+ */
 Fixed	&Fixed::min(Fixed &a, Fixed &b)
 {
 	if (a < b)
@@ -80,6 +83,9 @@ Fixed	&Fixed::min(Fixed &a, Fixed &b)
 	return (b);
 }
 
+/**
+ * @brief Returns the minimum between the two given Fixed.
+ */
 Fixed const &Fixed::min(Fixed const &a, Fixed const &b)
 {
 	if (a < b)
@@ -87,6 +93,9 @@ Fixed const &Fixed::min(Fixed const &a, Fixed const &b)
 	return (b);
 }
 
+/**
+ * @brief Returns the maximum between the two given Fixed.
+ */
 Fixed	&Fixed::max(Fixed &a, Fixed &b)
 {
 	if (a > b)
@@ -94,6 +103,9 @@ Fixed	&Fixed::max(Fixed &a, Fixed &b)
 	return (b);
 }
 
+/**
+ * @brief Returns the maximum between the two given Fixed.
+ */
 Fixed const &Fixed::max(Fixed const &a, Fixed const &b)
 {
 	if (a > b)
@@ -147,12 +159,12 @@ bool	operator>=(Fixed const &a, Fixed const &b)
 
 Fixed	operator+(Fixed const &a, Fixed const &b)
 {
-	return (a.getRawBits() + b.getRawBits());
+	return (a.toFloat() + b.toFloat());
 }
 
 Fixed	operator-(Fixed const &a, Fixed const &b)
 {
-	return (a.getRawBits() - b.getRawBits());
+	return (a.toFloat() - b.toFloat());
 }
 
 Fixed	operator*(Fixed const &a, Fixed const &b)
