@@ -1,46 +1,45 @@
 #include "ClapTrap.hpp"
 
+#define X "\e[0m"
+#define COLOR "\e[90m"
+#define MSG(msg) std::cout << COLOR << msg << X << std::endl;
+#define MSG_NAMED(name, msg) std::cout << COLOR << "ClapTrap 🤖 " << name << msg << X << std::endl;
+#define MSG_ATK(name, target, dmg) std::cout << COLOR << "ClapTrap 🤖 " << name << " attacks " << target << " causing " << dmg << "pts of damage!" << X << std::endl;
+
 /********************************
  *		CREATOR / DESTRUCTOR	*
  ********************************/
 
-ClapTrap::ClapTrap()
+ClapTrap::ClapTrap(): _name("CL4P-TP"), _hp(10), _mp(10), _dmg(0)
 {
-	_name = "CL4P-TP";
-	_hp = 10;
-	_mp = 10;
-	_dmg = 0;
-	std::cout << "Default constructor for ClapTrap" << std::endl;
+	MSG("ClapTrap 🤖 : Default constructor called");
 }
 
 ClapTrap::ClapTrap(std::string name): _name(name), _hp(10), _mp(10), _dmg(0)
 {
-	std::cout << "ClapTrap " << _name << " has been created" << std::endl;
+	MSG_NAMED(_name, " has been created");
 }
 
 ClapTrap::ClapTrap(ClapTrap const &toCopy)
 {
-	_name = toCopy._name;
-	_hp = toCopy._hp;
-	_mp = toCopy._mp;
-	_dmg = toCopy._dmg;
-	std::cout << "ClapTrap " << _name << " has been cloned" << std::endl;
+	*this = toCopy;
+	MSG_NAMED(_name, " has been cloned");
 }
 
 ClapTrap::~ClapTrap()
 {
-	std::cout << "ClapTrap " << _name << " has been destroyed (thanks)" << std::endl;
+	MSG_NAMED(_name, " has been destroyed");
 }
 
 ClapTrap	&ClapTrap::operator=(ClapTrap const &toAssign)
 {
+	MSG("ClapTrap 🤖 : Assignement operator called")
 	if (this != &toAssign)
 	{
 		_name = toAssign._name;
 		_hp = toAssign._hp;
 		_mp = toAssign._mp;
 		_dmg = toAssign._dmg;
-		std::cout << "ClapTrap Assignement operator called" << std::endl;
 	}
 	return (*this);
 }
@@ -53,14 +52,13 @@ void	ClapTrap::attack(std::string const &target)
 {
 	if (_mp && _hp)
 	{
-		std::cout << "ClapTrap " << _name << " attacks " << target 
-		<< " causing " << _dmg << "pts of damage!" << std::endl;
+		MSG_ATK(_name, target, _dmg);
 		_mp--;
 	}
 	else if (_hp && !_mp)
-		std::cout << "ClapTrap " << _name << " has not enough energy points!" << std::endl;
+		{MSG_NAMED(_name, " has not enough energy points!");}
 	else
-		std::cout << "ClapTrap " << _name << " has no HP left!" << std::endl;
+		{MSG_NAMED(_name, " has no HP left!");}
 }
 
 void	ClapTrap::takeDamage(unsigned int amount)

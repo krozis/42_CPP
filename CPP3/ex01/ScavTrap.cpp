@@ -1,16 +1,22 @@
 #include "ScavTrap.hpp"
 
+#define X "\e[0m"
+#define COLOR "\e[94m"
+#define MSG(msg) std::cout << COLOR << "ScavTrap 🧿 : " << msg << X << std::endl
+#define MSG_NAMED(name, msg) std::cout << COLOR << "ScavTrap 🧿 : " << name << msg << X << std::endl
+#define MSG_ATK(name, target, dmg) std::cout << COLOR << "ScavTrap 🧿 : " << name << " attacks " << target << " causing " << dmg << "pts of damage!" << X << std::endl
+
 /********************************
  *		CREATOR / DESTRUCTOR	*
  ********************************/
 
 ScavTrap::ScavTrap()
 {
-	_name = "SC4V-TP";
+	_name ="SC4V-TP";
 	_hp = 100;
 	_mp = 100;
 	_dmg = 30;
-	std::cout << "Default constructor for ScavTrap" << std::endl;
+	MSG("Default constructor called");
 }
 
 ScavTrap::ScavTrap(std::string name): ClapTrap(name)
@@ -18,7 +24,7 @@ ScavTrap::ScavTrap(std::string name): ClapTrap(name)
 	_hp = 100;
 	_mp = 50;
 	_dmg = 20;
-	std::cout << "ScavTrap " << _name << " has been created" << std::endl;
+	MSG_NAMED(_name, " has been created");
 }
 
 ScavTrap::~ScavTrap()
