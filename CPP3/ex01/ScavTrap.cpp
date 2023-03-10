@@ -18,8 +18,8 @@ ScavTrap::ScavTrap(): ClapTrap("SC4V-TP")
 {
 	MSG("Default constructor called");
 	_hp = 100;
-	_mp = 100;
-	_dmg = 30;
+	_mp = 50;
+	_dmg = 20;
 }
 
 ScavTrap::ScavTrap(std::string name): ClapTrap(name)
