@@ -3,8 +3,8 @@
 #define X "\e[0m"
 #define COLOR "\e[90m"
 #define ENDL X << std::endl
-#define NAME COLOR << "ClapTrap 🤖 "
-#define MSG(msg) std::cout << COLOR << msg << ENDL
+#define NAME COLOR << "ClapTrap 🤖 : "
+#define MSG(msg) std::cout << NAME << msg << ENDL
 #define MSG_NAMED(name, msg) std::cout << NAME << name << msg << ENDL
 #define MSG_ATK(name, target, dmg) std::cout << NAME << name << " attacks " << target << " causing " << dmg << "pts of damage!" << ENDL
 #define MSG_HEAL(name, amount, hp) std::cout << NAME << name << " regained " << amount << "HP. It now has " << hp << " HP." << ENDL 
@@ -16,7 +16,7 @@
 
 ClapTrap::ClapTrap(): _name("CL4P-TP"), _hp(10), _mp(10), _dmg(0)
 {
-	MSG("ClapTrap 🤖 : Default constructor called");
+	MSG("Default constructor called");
 }
 
 ClapTrap::ClapTrap(std::string name): _name(name), _hp(10), _mp(10), _dmg(0)
