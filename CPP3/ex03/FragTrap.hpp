@@ -13,7 +13,7 @@ class FragTrap: virtual public ClapTrap
 
 		FragTrap &operator=(FragTrap const &toAssign);
 
-		void	highFiveGuys();
+		void	highFiveGuys() const;
 	private:
 
 };
