@@ -27,12 +27,12 @@ int	main(void)
 
 	MSG("\n--- Damages && Repears ---\n");
 
+	toto.beRepaired(20);
 	for (int i = 1; i < 52; i+= 10)
 	{
 		titi->takeDamage(i);
 		titi->beRepaired(i - 1);
 	}
-	toto.beRepaired(20);
 
 	MSG("\n---- DESTRUCTORS ----\n");
 	delete (titi);
