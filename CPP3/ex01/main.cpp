@@ -31,7 +31,7 @@ int	main(void)
 	for (int i = 1; i < 52; i+= 10)
 	{
 		titi->takeDamage(i);
-		titi->beRepaired(i - 1);
+		titi->beRepaired(i / 5);
 	}
 
 	MSG("\n---- DESTRUCTORS ----\n");
