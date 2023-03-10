@@ -10,6 +10,7 @@ int	main(void)
 {
 	MSG("\n----- CREATION -----\n");
 
+	DiamondTrap copy;
 	DiamondTrap tata;
 	DiamondTrap	toto("Marcel_Pignol");
 	ClapTrap	*titi = new DiamondTrap("Robert_Spierre");
@@ -36,6 +37,11 @@ int	main(void)
 		titi->takeDamage(i);
 		titi->beRepaired(i / 5);
 	}
+
+	MSG("\n-- Assignement Operator --\n");
+	copy.whoAmI();
+	copy = toto;
+	copy.whoAmI();
 
 	MSG("\n---- DESTRUCTORS ----\n");
 	delete (titi);
