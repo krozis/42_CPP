@@ -3,8 +3,8 @@
 #define X "\e[0m"
 #define COLOR "\e[38;5;202m"
 #define ENDL X << std::endl
-#define NAME COLOR << "FragTrap ✋ "
-#define MSG(msg) std::cout << COLOR << msg << ENDL
+#define NAME COLOR << "FragTrap ✋ : "
+#define MSG(msg) std::cout << NAME << msg << ENDL
 #define MSG_NAMED(name, msg) std::cout << NAME << name << msg << ENDL
 #define MSG_ATK(name, target, dmg) std::cout << NAME << name << " attacks " << target << " causing " << dmg << "pts of damage!" << ENDL
 #define MSG_HEAL(name, amount, hp) std::cout << NAME << name << " regained " << amount << "HP. It now has " << hp << " HP." << ENDL 
@@ -60,5 +60,5 @@ FragTrap	&FragTrap::operator=(FragTrap const &toAssign)
 
 void	FragTrap::highFiveGuys() const
 {
-	MSG_NAMED(_name, "want to do a HIGH FIVE ✋! Don't disappoint it...");
+	MSG_NAMED(_name, " want to do a HIGH FIVE ✋! Don't disappoint it...");
 }
