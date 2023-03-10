@@ -1,34 +1,39 @@
 #include "Animal.hpp"
 
+#define X "\e[0m"
+#define COLOR "\e[90m"
+#define ITALIC "\e[3m"
+#define ENDL X << std::endl
+#define NAME COLOR << "Animal 🐾 : "
+#define MSG(msg) std::cout << NAME << msg << ENDL
+#define SOUND std::cout << NAME ITALIC << "you hear a random animal sound, far away..." << ENDL
+
 /********************************
  *		CREATOR / DESTRUCTOR	*
  ********************************/
 
-Animal::Animal()
+Animal::Animal(): _type("animal")
 {
-	std::cout << GREY << "Default constructor for an Animal instance called" << X << std::endl;
-	_type = "animal";
+	MSG("Default constructor called");
 }
 
-Animal::Animal(Animal const &toCopy)
+Animal::Animal(Animal const &toCopy): _type(toCopy._type)
 {
-	std::cout << GREY << "copy constructor called for an Animal called" << X << std::endl;
-	_type = toCopy._type;
+	MSG("Copy constructor called");
 }
 
 Animal::~Animal()
 {
-	std::cout << GREY << "Animal's Destructor called" << X << std::endl;
+	MSG("Destructor called");
 }
 
 
 Animal	&Animal::operator=(Animal const &toAssign)
 {
-	std::cout << GREY << "Assignement operator called for an Animal" << X << std::endl;
+	MSG("Assignement operator called");
 	if (this != &toAssign)
 		_type = toAssign._type;
 	return (*this);
-	
 }
 
 /********************************
@@ -37,7 +42,7 @@ Animal	&Animal::operator=(Animal const &toAssign)
 
 void	Animal::makeSound() const
 {
-	std::cout << ITALIC GREY << "you hear a random animal sound, far away..." << X << std::endl;
+	SOUND;
 }
 
 std::string	Animal::getType() const

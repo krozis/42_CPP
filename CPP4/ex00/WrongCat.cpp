@@ -1,4 +1,13 @@
+#include "WrongAnimal.hpp"
 #include "WrongCat.hpp"
+
+#define X "\e[0m"
+#define COLOR "\e[38;5;162m"
+#define ITALIC "\e[3m"
+#define ENDL X << std::endl
+#define NAME COLOR << "WrongCat 🦦 : "
+#define MSG(msg) std::cout << NAME << msg << ENDL
+#define SOUND std::cout << NAME ITALIC << "blup bip blop! ( #ThisIsSoWrong )" << ENDL
 
 /********************************
  *		CREATOR / DESTRUCTOR	*
@@ -6,24 +15,24 @@
 
 WrongCat::WrongCat()
 {
-	std::cout << ORANGE << "Default constructor for WrongCat called" << X << std::endl;
+	MSG("Default constructor called");
 	_type = "wrong cat";
 }
 
 WrongCat::WrongCat(WrongCat const &toCopy)
 {
-	std::cout << ORANGE << "WrongCat's copy constructor called" << X << std::endl;
+	MSG("Copy constructor called");
 	_type = toCopy._type;
 }
 
 WrongCat::~WrongCat()
 {
-	std::cout << ORANGE << "Destructor for WrongCat called" << X << std::endl;
+	MSG("Destructor called");
 }
 
 WrongCat	&WrongCat::operator=(WrongCat const &toAssign)
 {
-	std::cout << ORANGE << "WrongCat's assignement operator called" << X << std::endl;
+	MSG("Assignement operator called");
 	if (this != &toAssign)
 		_type = toAssign._type;
 	return (*this);
@@ -35,7 +44,7 @@ WrongCat	&WrongCat::operator=(WrongCat const &toAssign)
 
 void	WrongCat::makeSound() const
 {
-	std::cout << ITALIC ORANGE << "blup bip blop! ( #ThisIsSoWrong )" << X << std::endl;
+	SOUND;
 }
 
 /********************************

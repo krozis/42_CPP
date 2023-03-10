@@ -1,7 +1,7 @@
 #ifndef WRONGANIMAL_HPP
 # define WRONGANIMAL_HPP
 
-#include "cpp_pool.hpp"
+#include <iostream>
 
 class WrongAnimal
 {

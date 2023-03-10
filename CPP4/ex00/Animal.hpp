@@ -1,7 +1,7 @@
 #ifndef ANIMAL_HPP
 # define ANIMAL_HPP
 
-#include "cpp_pool.hpp"
+#include <iostream>
 
 class Animal
 {

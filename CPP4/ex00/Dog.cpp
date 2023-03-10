@@ -1,4 +1,13 @@
+#include "Animal.hpp"
 #include "Dog.hpp"
+
+#define X "\e[0m"
+#define COLOR "\e[38;5;202m"
+#define ITALIC "\e[3m"
+#define ENDL X << std::endl
+#define NAME COLOR << "Dog 🐕 : "
+#define MSG(msg) std::cout << NAME << msg << ENDL
+#define SOUND std::cout << NAME ITALIC << "wooof woof woof! Woof! ( #BARFATTACKF )" << ENDL
 
 /********************************
  *		CREATOR / DESTRUCTOR	*
@@ -6,25 +15,25 @@
 
 Dog::Dog()
 {
-	std::cout << YELLOW << "Default constructor for dog instance called" << X << std::endl;
+	MSG("Default constructor called");
 	_type = "dog";
 }
 
 Dog::Dog(Dog const &toCopy)
 {
-	std::cout << YELLOW << "Dog's copy constructor called" << X << std::endl;
-	_type = toCopy._type;
+	MSG("Copy constructor called");
+	*this = toCopy;
 }
 
 Dog::~Dog()
 {
-	std::cout << YELLOW << "Dog's destructor called" << X << std::endl;
+	MSG("Destructor called");
 }
 
 
 Dog	&Dog::operator=(Dog const &toAssign)
 {
-	std::cout << YELLOW << "Assignement operator called for dog" << X << std::endl;
+	MSG("Assignement operator called");
 	if (this != &toAssign)
 		_type = toAssign._type;
 	return (*this);
@@ -36,7 +45,7 @@ Dog	&Dog::operator=(Dog const &toAssign)
 
 void	Dog::makeSound() const
 {
-	std::cout << ITALIC YELLOW << "wooof woof woof! Woof! ( #BARFATTACKF )" << X << std::endl;
+	SOUND;
 }
 
 /********************************

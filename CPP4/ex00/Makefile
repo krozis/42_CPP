@@ -24,7 +24,7 @@ SRCS	=	main.cpp\
 
 OBJ		=	$(SRCS:.cpp=.o)
 
-%.o:	%.cpp %.hpp
+%.o:	%.cpp
 		@$(CC) $(FLAGS) -o $@ -c $<
 
 $(NAME):	$(OBJ)

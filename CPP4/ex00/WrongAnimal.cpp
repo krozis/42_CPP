@@ -1,27 +1,35 @@
 #include "WrongAnimal.hpp"
 
+#define X "\e[0m"
+#define COLOR "\e[38;5;130m"
+#define ITALIC "\e[3m"
+#define ENDL X << std::endl
+#define NAME COLOR << "WrongAnimal 🐵 : "
+#define MSG(msg) std::cout << NAME << msg << ENDL
+#define SOUND std::cout << NAME ITALIC << "weird fake animal sound" << ENDL
+
 /********************************
  *		CREATOR / DESTRUCTOR	*
  ********************************/
 
 WrongAnimal::WrongAnimal(): _type("wrong animal")
 {
-	std::cout << PINK << "Default constructor for WrongAnimal called" << X << std::endl;
+	MSG("Default constructor called");
 }
 
 WrongAnimal::WrongAnimal(WrongAnimal const &toCopy): _type(toCopy._type)
 {
-	std::cout << PINK << "copy constructor called for WrongAnimal" << X << std::endl;
+	MSG("Copy constructor called");
 }
 
 WrongAnimal::~WrongAnimal()
 {
-	std::cout << PINK << "Destructor for WrongAnimal called" << X << std::endl;	
+	MSG("Destructor called");
 }
 
 WrongAnimal	&WrongAnimal::operator=(WrongAnimal const &toAssign)
 {
-	std::cout << PINK << "WrongAnimal's assignement operator called" << X << std::endl;
+	MSG("Assignement operator called");
 	if (this != &toAssign)
 		_type = toAssign._type;
 	return (*this);
@@ -33,7 +41,7 @@ WrongAnimal	&WrongAnimal::operator=(WrongAnimal const &toAssign)
 
 void	WrongAnimal::makeSound() const
 {
-	std::cout << ITALIC PINK << "weird fake animal sound" << X << std::endl;
+	SOUND;
 }
 
 std::string	WrongAnimal::getType() const

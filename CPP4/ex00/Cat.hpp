@@ -1,9 +1,9 @@
 #ifndef CAT_HPP
 # define CAT_HPP
 
-# include "Animal.hpp"
+class Animal;
 
-class Cat: public Animal
+class Cat: virtual public Animal
 {
 	public:
 		Cat();

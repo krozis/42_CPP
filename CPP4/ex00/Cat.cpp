@@ -1,4 +1,14 @@
+#include "Animal.hpp"
 #include "Cat.hpp"
+
+#define X "\e[0m"
+#define COLOR "\e[38;5;99m"
+#define ITALIC "\e[3m"
+#define ENDL X << std::endl
+#define NAME COLOR << "Cat 🐈 : "
+#define MSG(msg) std::cout << NAME << msg << ENDL
+#define SOUND std::cout << NAME ITALIC << "meeeeow meow... meow? ( #PURRKWAAA??? )" << ENDL
+
 
 /********************************
  *		CREATOR / DESTRUCTOR	*
@@ -6,25 +16,25 @@
 
 Cat::Cat()
 {
-	std::cout << CYAN << "Default constructor for cat instance called" << X << std::endl;
+	MSG("Default constructor called");
 	_type = "cat";
 }
 
 Cat::Cat(Cat const &toCopy)
 {
-	std::cout << CYAN << "Cat's copy constructor called" << X << std::endl;
-	_type = toCopy._type;
+	MSG("Copy constructor called");
+	*this = toCopy;
 }
 
 Cat::~Cat()
 {
-	std::cout << CYAN << "Cat's destructor called" << X << std::endl;
+	MSG("Destructor called");
 }
 
 
 Cat	&Cat::operator=(Cat const &toAssign)
 {
-	std::cout << CYAN << "Assignement operator called for cat" << X << std::endl;
+	MSG("Assignement operator called");
 	if (this != &toAssign)
 		_type = toAssign._type;
 	return (*this);
@@ -36,7 +46,7 @@ Cat	&Cat::operator=(Cat const &toAssign)
 
 void	Cat::makeSound() const
 {
-	std::cout << ITALIC CYAN << "meeeeow meow... meow? ( #PURRKWAAA??? )" << X << std::endl;
+	SOUND;
 }
 
 /********************************
