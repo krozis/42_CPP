@@ -60,5 +60,5 @@ FragTrap	&FragTrap::operator=(FragTrap const &toAssign)
 
 void	FragTrap::highFiveGuys() const
 {
-	MSG_NAMED(_name, "want to do a HIGH FIVE ✋! Don't disappoint it...");
+	MSG_NAMED(_name, " want to do a HIGH FIVE ✋! Don't disappoint it...");
 }
