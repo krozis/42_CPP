@@ -1,10 +1,10 @@
 #ifndef CAT_HPP
 # define CAT_HPP
 
-# include "Animal.hpp"
-# include "Brain.hpp"
+class Animal;
+class Brain;
 
-class Cat: public Animal
+class Cat: virtual public Animal
 {
 	public:
 		Cat();
@@ -13,10 +13,13 @@ class Cat: public Animal
 		Cat	&operator=(Cat const &toAssign);
 
 		void	makeSound() const;
+		void	addIdea(std::string const &idea);
+		void	displayIdeas(int start, int end) const;
 
 	private:
 		Brain	*_brain;
 
+		void	_displayOne(int idx) const;
 };
 
 #endif
