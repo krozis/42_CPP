@@ -13,7 +13,7 @@
 | [CPP module 3](https://cdn.intra.42.fr/pdf/pdf/79805/fr.subject.pdf) | 6 | Héritage |  DONE - 100% |
 | [CPP module 4](https://cdn.intra.42.fr/pdf/pdf/79072/fr.subject.pdf) | 10 | Polymorphisme par sous-typage, classes abstraites, interfaces | DONE - WAITING FOR EVAL |
 | [CPP module 5](https://cdn.intra.42.fr/pdf/pdf/79159/fr.subject.pdf) | 9 | Répétitions et exceptions | PENDING |
-| [CPP module 6](https://cdn.intra.42.fr/pdf/pdf/79161/fr.subject.pdf) | 5 | C++ casts | PENDING /!\ Subject will be changed soon |
+| [CPP module 6](https://cdn.intra.42.fr/pdf/pdf/79161/fr.subject.pdf) | 5 | C++ casts | PENDING |
 | [CPP module 7](https://cdn.intra.42.fr/pdf/pdf/79164/fr.subject.pdf) | 6 | C++ templates | PENDING |
 | [CPP module 8](https://cdn.intra.42.fr/pdf/pdf/79029/fr.subject.pdf) | 7 |  Containers templates, itérateurs, algorithmes | PENDING |
 | [CPP module 9](https://cdn.intra.42.fr/pdf/pdf/79984/en.subject.pdf) | 1.2 | STL | PENDING |
