@@ -54,6 +54,15 @@ int	main()
 	MSG(UNDERLINED, "\n   USE A VALID MATERIA  \n");
 	for (int i = -1; i < 5; i++)
 		toto.use(i, toto);
+	MSG(UNDERLINED, "\n   UNEQUIP AND LIST  \n");
+	toto.unequip(1);
+	toto.listInventory();
+	MSG(BIG, "\n------COPY------\n");
+	ICharacter	*titi = new Character(toto);
+	titi->use(2, toto);
+	titi->unequip(2);
+	titi->use(2, toto);
 	MSG(BIG, "\n----DESTRUCTOR----\n");
+	delete (titi);
 	return (EXIT_FAILURE);
 }
