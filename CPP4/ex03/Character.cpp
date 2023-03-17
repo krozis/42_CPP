@@ -5,7 +5,7 @@
 #define COLOR "\e[94m"
 #define ENDL X << std::endl
 #define NAME COLOR << "Character 🧙 : "
-#define SUB_MSG(msg) std::cout << COLOR << msg << ENDL;
+#define SUB_MSG(msg) std::cout << COLOR << msg << ENDL
 #define MSG(msg) std::cout << NAME << msg << ENDL
 #define MSG_TWO(first, second) std::cout << NAME << first << second << ENDL
 
@@ -43,7 +43,12 @@ Character	&Character::operator=(Character const &toAssign)
 	{
 		_name = toAssign._name;
 		for (int i = 0; i < 4; i++)
-			_inventory[i] = toAssign._inventory[i]->clone();
+		{
+			if (toAssign._inventory[i])
+				_inventory[i] = toAssign._inventory[i]->clone();
+			else
+				_inventory[i] = NULL;
+		}
 	}
 	return (*this);
 }
@@ -99,7 +104,7 @@ void	Character::use(int idx, ICharacter &target)
 		if (_inventory[idx]) 
 			_inventory[idx]->use(target);
 		else
-			MSG_TWO("No item at emplacement ", idx);
+			MSG_TWO("No item at slot ", idx);
 	}
 }
 
@@ -108,11 +113,11 @@ void	Character::listInventory() const
 	MSG_TWO(_name, "'s Inventory :");
 	for (int i = 0; i < 4; i++)
 	{
-		std::cout << COLOR << " " << i;
+		std::cout << COLOR << " " << i << " - ";
 		if (_inventory[i])
-			MSG_TWO(" - ", _inventory[i]->getType());
+			SUB_MSG(_inventory[i]->getType());
 		else
-			SUB_MSG(" - EMPTY SLOT");
+			SUB_MSG("EMPTY SLOT");
 	}
 }
 
