@@ -20,6 +20,7 @@ SRCS	=	main.cpp\
 			Ice.cpp\
 			Cure.cpp\
 			Character.cpp\
+			MateriaSource.cpp\
 
 OBJ		=	$(SRCS:.cpp=.o)
 

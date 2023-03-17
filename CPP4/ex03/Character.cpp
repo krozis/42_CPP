@@ -44,6 +44,8 @@ Character	&Character::operator=(Character const &toAssign)
 		_name = toAssign._name;
 		for (int i = 0; i < 4; i++)
 		{
+			if (_inventory[i])
+				delete (_inventory[i]);
 			if (toAssign._inventory[i])
 				_inventory[i] = toAssign._inventory[i]->clone();
 			else
