@@ -60,7 +60,7 @@ std::string	Bureaucrat::getName() const
 
 void	Bureaucrat::minus()
 {
-	MSG("Changing grade -> -1");
+	MSG("Upgrading grade by 1");
 	if (_grade < 2)
 		throw(EXCEP(GRADE_TOO_HIGH));
 	_grade--;;
@@ -68,7 +68,7 @@ void	Bureaucrat::minus()
 
 void	Bureaucrat::minus(int nb)
 {
-	MSG_TWO("Changing grade -> -", nb);
+	MSG_TWO("Upgrading grade by ", nb);
 	if (nb < 1)
 		throw(EXCEP(INVALID_VALUE));
 	if (_grade - nb < 1)
@@ -78,7 +78,7 @@ void	Bureaucrat::minus(int nb)
 
 void	Bureaucrat::plus()
 {
-	MSG("Changing grade -> +1");
+	MSG("Downgrading grade by ");
 	if (_grade > 149)
 		throw(EXCEP(GRADE_TOO_LOW));
 	_grade++;
@@ -86,7 +86,7 @@ void	Bureaucrat::plus()
 
 void	Bureaucrat::plus(int nb)
 {
-	MSG_TWO("Changing grade -> +", nb);
+	MSG_TWO("Downgrading grade by ", nb);
 	if (nb < 1)
 		throw(EXCEP(INVALID_VALUE));
 	if (_grade + nb > 150)

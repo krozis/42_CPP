@@ -86,6 +86,17 @@ int	main()
 		{
 			std::cerr << e.what() << '\n';
 		}
+		try
+		{
+			Bureaucrat	toto("Carlos Marx", 50);
+
+			MSG_SIMPLE(toto);
+			toto.minus(-5);
+		}
+		catch(const std::exception& e)
+		{
+			std::cerr << e.what() << '\n';
+		}
 	}
 	return (EXIT_SUCCESS);
 }
