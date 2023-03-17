@@ -1,9 +1,14 @@
 #include "Ice.hpp"
 #include "Character.hpp"
 
-#define ITALIC "\e[3m"
-#define COLOR "\e[38;5;45m" //ICEBLUE
 #define X "\e[0m"
+#define COLOR "\e[38;5;45m"
+#define ITALIC "\e[3m"
+#define ENDL X << std::endl
+#define NAME COLOR << "Ice 🔵 : "
+#define MSG(msg) std::cout << NAME << msg << ENDL
+#define MSG_NAMED(type, msg) std::cout << NAME << msg << type << ENDL
+#define MSG_USE(name) std::cout << NAME ITALIC << "* shoots an ice bolt at " << name << " *" << ENDL
 
 /********************************
  *		CREATOR / DESTRUCTOR	*
@@ -11,22 +16,23 @@
 
 Ice::Ice(): AMateria("ice")
 {
-	std::cout << COLOR << "ice Materia created" << X << std::endl;
+	MSG("Default constructor called");
 }
 
-Ice::Ice(Ice const &toCopy): AMateria(toCopy)
+Ice::Ice(Ice const &toCopy)
 {
-	std::cout << COLOR << "ice Materia copied" << X << std::endl;
+	MSG("Copy constructor called");
+	*this = toCopy;
 }
 
 Ice::~Ice()
 {
-	std::cout << COLOR << "ice Materia destroyed" << X << std::endl;
+	MSG("Destructor called");
 }
 
 Ice	&Ice::operator=(Ice const &toAssign)
 {
-	std::cout << COLOR << "ice Materia assignement operator called" << X << std::endl;
+	MSG("Assignement operator called");
 	if (this != &toAssign)
 		_type = toAssign._type;
 	return (*this);
@@ -36,16 +42,15 @@ Ice	&Ice::operator=(Ice const &toAssign)
  *			PUBLIC	 			*
  ********************************/
 
-AMateria	*Ice::clone(void) const
+AMateria	*Ice::clone() const
 {
-	std::cout << COLOR << "cloning an ice Materia" << X << std::endl;
-	return (new Ice(*this));
+	MSG("cloning...");
+	return (new Ice);
 }
 
-void		Ice::use(ICharacter &target) const
+void	Ice::use(ICharacter &target) const
 {
-	std::cout << ITALIC COLOR << "* shoots an ice bolt at " << target.getName()
-	<< " *" << X << std::endl;
+	MSG_USE(target.getName());
 }
 
 /********************************

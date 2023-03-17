@@ -1,36 +1,59 @@
-#include "main.hpp"
+#include <cstdlib>
+#include "Ice.hpp"
+#include "Cure.hpp"
+#include "Character.hpp"
+
+#define NB 5
+#define BIG "\e[1m \e[4m"
+#define RED "\e[31m"
+#define UNDERLINED "\e[4m"
+#define ENDL "\e[0m" << std::endl
+#define BL std::cout << std::endl
+#define MSG(type, msg) std::cout << type << msg << ENDL
+#define MSG_TYPE(type, msg) std::cout << msg << "\e[31m" << type << ENDL
 
 int	main()
 {
-	std::cout << BOLD UNDERLINED << "\n------ CREATORS --------\n" << X << std::endl;
-	AMateria	*a_ice;
-	Ice			i;
-	AMateria	*a_cure;
-	Cure		c;
-	Character	gus("gustave");
-	ICharacter	*toto;
-	
-	std::cout << BOLD UNDERLINED << "\n------ MATERIA CLONE + GETTYPE --------\n" << X << std::endl;
-	a_ice = i.clone();
-	std::cout << "newly created materia's type is " << a_ice->getType() << std::endl;
-	BACKLINE;
-	a_cure = c.clone();
-	std::cout << "newly created materia's type is " << a_cure->getType() << std::endl;
-	BACKLINE;
+	MSG(BIG RED, "\n       CHARACTER TESTS       ");
+	MSG(BIG, "\n-----CREATOR------\n");
+	Character	toto("Gaston");
 
-	std::cout << BOLD UNDERLINED << "\n------ CHARACTER TESTS --------\n" << X << std::endl;
-	gus.equip(&i);	
-	toto = new Character(gus);
-	toto->use(0, gus);
-	toto->unequip(0);
-	toto->unequip(0);
-	gus.use(0, gus);
-	std::cout << BOLD UNDERLINED << "\n------ DESTRUCTORS --------\n" << X << std::endl;
-	std::cout << UNDERLINED << "      dynamic      \n" << X << std::endl;
-	delete (a_ice);
-	delete (a_cure);
-	delete (toto);
-	std::cout << UNDERLINED << "\n      static      \n" << X << std::endl;
+	MSG(BIG RED, "\n       MATERIA TESTS       ");
+	{
+		MSG(BIG, "\n-----CREATOR------\n");
+		Ice			a;
+		AMateria	*m1 = a.clone();
+		Cure 		b;
+		AMateria	*m2 = b.clone();
 
-	return (EXIT_SUCCESS);
+		MSG(BIG, "\n------USE------\n");
+		a.use(toto);
+		m1->use(toto);
+		b.use(toto);
+		m2->use(toto);
+
+		MSG(BIG, "\n----DESTRUCTOR----\n");
+		delete (m1);
+		delete (m2);
+	}
+	MSG(BIG RED, "\n       CHARACTER TESTS       ");
+	MSG(BIG, "\n----INVENTORY----\n");
+	MSG(UNDERLINED, "\n   LIST  \n");
+	toto.listInventory();
+	MSG(UNDERLINED, "\n   USE  \n");
+	for (int i = -1; i < 5; i++)
+		toto.use(i, toto);
+	MSG(UNDERLINED, "\n   UNEQUIP  \n");
+	for (int i = -1; i < 5; i++)
+		toto.unequip(i);
+	MSG(UNDERLINED, "\n   EQUIP  \n");
+	for (int i = 0; i < 2; i++)
+		toto.equip(new Ice);
+	for (int i = 2; i < 4; i++)
+		toto.equip(new Cure);	
+	MSG(UNDERLINED, "\n   USE A VALID MATERIA  \n");
+	for (int i = -1; i < 5; i++)
+		toto.use(i, toto);
+	MSG(BIG, "\n----DESTRUCTOR----\n");
+	return (EXIT_FAILURE);
 }

@@ -1,9 +1,14 @@
 #include "Cure.hpp"
 #include "Character.hpp"
 
-#define ITALIC "\e[3m"
-#define COLOR "\e[38;5;162m" //PINK
 #define X "\e[0m"
+#define COLOR "\e[38;5;162m"
+#define ITALIC "\e[3m"
+#define ENDL X << std::endl
+#define NAME COLOR << "Cure 🟣 : "
+#define MSG(msg) std::cout << NAME << msg << ENDL
+#define MSG_NAMED(type, msg) std::cout << NAME << msg << type << ENDL
+#define MSG_USE(name) std::cout << NAME ITALIC << "* heals " << name << "'s wounds *" ENDL
 
 /********************************
  *		CREATOR / DESTRUCTOR	*
@@ -11,24 +16,25 @@
 
 Cure::Cure(): AMateria("cure")
 {
-	std::cout << COLOR << "cure Materia created" << X << std::endl;
+	MSG("Default constructor called");
 }
 
-Cure::Cure(Cure const &toCopy): AMateria(toCopy)
+Cure::Cure(Cure const &toCopy)
 {
-	std::cout << COLOR << "cure Materia copied" << X << std::endl;
+	MSG("Copy constructor called");
+	*this = toCopy;
 }
 
 Cure::~Cure()
 {
-	std::cout << COLOR << "cure Materia destroyed" << X << std::endl;
+	MSG("Destructor called");
 }
 
 Cure	&Cure::operator=(Cure const &toAssign)
 {
-	std::cout << COLOR << "cure Materia assignement operator called" << X << std::endl;
+	MSG("Assignement operator called");
 	if (this != &toAssign)
-		_type = toAssign._type;
+		(void)toAssign;
 	return (*this);
 }
 
@@ -36,16 +42,15 @@ Cure	&Cure::operator=(Cure const &toAssign)
  *			PUBLIC	 			*
  ********************************/
 
-AMateria	*Cure::clone(void) const
+AMateria	*Cure::clone() const
 {
-	std::cout << COLOR << "cloning a cure Materia" << X << std::endl;
-	return (new Cure(*this));
+	MSG("cloning...");
+	return (new Cure);
 }
 
 void	Cure::use(ICharacter &target) const
 {
-	std::cout << ITALIC COLOR << "* heals  " << target.getName()
-	<< "'s wounds *" << X << std::endl;
+	MSG_USE(target.getName());
 }
 
 /********************************

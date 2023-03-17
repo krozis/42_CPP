@@ -1,37 +1,49 @@
 #include "Character.hpp"
 #include "AMateria.hpp"
 
-#define COLOR "\e[38;5;202m" //ORANGE
 #define X "\e[0m"
+#define COLOR "\e[94m"
+#define ENDL X << std::endl
+#define NAME COLOR << "Character 🧙 : "
+#define SUB_MSG(msg) std::cout << COLOR << msg << ENDL;
+#define MSG(msg) std::cout << NAME << msg << ENDL
+#define MSG_TWO(first, second) std::cout << NAME << first << second << ENDL
 
 /********************************
  *		CREATOR / DESTRUCTOR	*
  ********************************/
 
-Character::Character(std::string const &name): _name(name)
+Character::Character(std::string const name): _name(name)
 {
-	std::cout << COLOR << "Constructor called for the Character " << _name << X << std::endl;
+	MSG_TWO("Constructor called for ", _name);
 	for (int i = 0; i < 4; i++)
-		_items[i] = NULL;
+		_inventory[i] = NULL;
 }
 
-Character::Character(Character const &toCopy): _name(toCopy._name)
+Character::Character(Character const &toCopy)
 {
-	std::cout << COLOR << "Copy constructor called for the Character " << _name << X << std::endl;
-	_copy_items(toCopy);
+	MSG("Copy constructor called");
+	*this = toCopy;
 }
 
 Character::~Character()
 {
-	std::cout << COLOR << "destructor called for the Character " << _name << X << std::endl;
+	MSG_TWO("Destructor called for ", _name);
+	for (int i = 0; i < 4; i++)
+	{
+		if (_inventory[i])
+			delete(_inventory[i]);
+	}
 }
 
 Character	&Character::operator=(Character const &toAssign)
 {
+	MSG("Assignement operator called");
 	if (this != &toAssign)
 	{
 		_name = toAssign._name;
-		_copy_items(toAssign);
+		for (int i = 0; i < 4; i++)
+			_inventory[i] = toAssign._inventory[i]->clone();
 	}
 	return (*this);
 }
@@ -40,50 +52,67 @@ Character	&Character::operator=(Character const &toAssign)
  *			PUBLIC	 			*
  ********************************/
 
-std::string	const &Character::getName() const
+std::string const	&Character::getName() const
 {
 	return (_name);
 }
 
 void	Character::equip(AMateria *m)
 {
-	for (int i = 0; i < 4; i++)
+	if (!m || (m->getType() != "ice" && m->getType() != "cure"))
+		MSG("Invalid Materia");
+	else
 	{
-		if (_items[i] == NULL)
+		for (int i = 0; i < 4; i++)
 		{
-			_items[i] = m;
-			return ;
-		}		
+			if (_inventory[i] == NULL)
+			{
+				MSG_TWO("Equiped a materia with type ", m->getType());
+				_inventory[i] = m;
+				return ;
+			}
+		}
+		MSG("Inventory is full");
 	}
-	std::cout << COLOR << "no more room in " << _name << "'s inventory to add a materia" << X << std::endl;
 }
 
 void	Character::unequip(int idx)
 {
-	if (idx > 3 || idx < 0)
-		std::cout << COLOR << "item index to unequip must be between 0 and 3 included" << X << std::endl;
-	else
+	if (idx < 0 || idx > 3)
+		MSG("Only index between 0 and 3 included are allowed");
+	else if (_inventory[idx])
 	{
-		if (_items[idx] == NULL)
-			std::cout << COLOR << "no materia at the index " << idx << X << std::endl;
-		else
-		{
-			std::cout << COLOR << _name << "unequiped " << _items[idx]->getType() << " materia at the index " << idx << X << std::endl;
-			_items[idx] = NULL;
-		}
+		MSG_TWO("Unequiped item at slot ", idx);
+		delete(_inventory[idx]);
+		_inventory[idx] = NULL;
 	}
+	else
+		MSG_TWO("No item at slot ", idx);
 }
 
 void	Character::use(int idx, ICharacter &target)
 {
-	if (idx > 3 || idx < 0)
-		std::cout << COLOR << "item index to use must be between 0 and 3 included" << X << std::endl;
+	if (idx < 0 || idx > 3)
+		MSG("Only index between 0 and 3 included are allowed");
 	else
 	{
-		if (_items[idx] == NULL)
-			std::cout << COLOR << "no materia at the index " << idx << X << std::endl;
+		if (_inventory[idx]) 
+			_inventory[idx]->use(target);
 		else
-			_items[idx]->use(target);
+			MSG_TWO("No item at emplacement ", idx);
+	}
+}
+
+void	Character::listInventory() const
+{
+	MSG_TWO(_name, "'s Inventory :");
+	for (int i = 0; i < 4; i++)
+	{
+		std::cout << COLOR << " " << i;
+		if (_inventory[i])
+			MSG_TWO(" - ", _inventory[i]->getType());
+		else
+			SUB_MSG(" - EMPTY SLOT");
 	}
 }
 
@@ -91,21 +120,6 @@ void	Character::use(int idx, ICharacter &target)
  *			PRIVATE	 			*
  ********************************/
 
-void	Character::_copy_items(Character const &target)
-{
-	for (int i = 0; i < 4; i++)
-		_items[i] = target._items[i];
-}
-
-/*
-void	Character::_clean_inventory()
-{
-	for (int i = 0; i < 4; i++)
-	{
-		if ()
-	}
-}
-*/
 /********************************
  *			OPERATORS 			*
  ********************************/

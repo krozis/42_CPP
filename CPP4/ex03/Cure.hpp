@@ -1,10 +1,11 @@
 #ifndef CURE_HPP
 # define CURE_HPP
 
-# include "AMateria.hpp"
+#include "AMateria.hpp"
 
 class ICharacter;
-class Cure: public AMateria
+
+class Cure: virtual public AMateria
 {
 	public:
 		Cure();
@@ -14,6 +15,7 @@ class Cure: public AMateria
 
 		AMateria	*clone() const;
 		void		use(ICharacter &target) const;
+
 	private:
 
 };

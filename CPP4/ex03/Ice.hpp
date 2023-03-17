@@ -1,11 +1,11 @@
 #ifndef ICE_HPP
 # define ICE_HPP
 
-# include "AMateria.hpp"
+#include "AMateria.hpp"
 
 class ICharacter;
 
-class Ice: public AMateria
+class Ice: virtual public AMateria
 {
 	public:
 		Ice();
