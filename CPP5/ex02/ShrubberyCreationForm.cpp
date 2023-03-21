@@ -20,7 +20,7 @@
  *		CREATOR / DESTRUCTOR	*
  ********************************/
 
-ShrubberyCreationForm::ShrubberyCreationForm(void): Form::Form("ShrubberyCreationForm", TO_SIGN, TO_EXEC), _target("no_target")
+ShrubberyCreationForm::ShrubberyCreationForm(): Form::Form("ShrubberyCreationForm", TO_SIGN, TO_EXEC), _target("no_target")
 {
 }
 
