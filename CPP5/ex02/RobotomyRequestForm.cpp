@@ -21,7 +21,7 @@
  *		CREATOR / DESTRUCTOR	*
  ********************************/
 
-RobotomyRequestForm::RobotomyRequestForm(): Form::Form("ShrubberyCreationForm", TO_SIGN, TO_EXEC), _target("no_target")
+RobotomyRequestForm::RobotomyRequestForm(): Form::Form("RobotomyRequestForm", TO_SIGN, TO_EXEC), _target("no_target")
 {
 }
 
