@@ -3,12 +3,13 @@
 
 #define X "\e[0m"
 #define COLOR "\e[38;5;202m"
+#define RED "\e[31m"
 #define ENDL X << std::endl
 #define BL std::cout << std::endl
 #define NAME COLOR << "Bureaucrat 👨‍💼 : "
 #define MSG(msg) std::cout << NAME << msg << ENDL
 #define MSG_TWO(first, second) std::cout << NAME << first << second << ENDL
-#define MSG_SIGN(name, fname) std::cout << NAME << name << " wants to sign the form " << fname << ENDL
+#define MSG_SIGN(name, fname) std::cout << NAME << name << " signed the form " << fname << ENDL
 
 #define INVALID_VALUE "Bureaucrat::InvalidValue"
 #define GRADE_TOO_HIGH "Bureaucrat::GradeTooHighException"
@@ -99,12 +100,12 @@ void	Bureaucrat::signForm(Form &form) const
 {
 	try
 	{
-		MSG_SIGN(_name, form.getName());
 		form.beSigned(*this);
+		MSG_SIGN(_name, form.getName());
 	}
 	catch (const std::exception& e)
 	{
-		std::cerr << _name << " couldn't sign " << form.getName() << " because " << e.what() << '\n';
+		std::cerr << _name << " couldn't sign " << form.getName() << " -> " << RED << e.what() << X << '\n';
 	}
 }
 

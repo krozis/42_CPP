@@ -4,7 +4,6 @@
 #define X "\e[0m"
 #define COLOR "\e[38;5;45m"
 #define ENDL X << std::endl
-#define BL std::cout << std::endl
 #define NAME COLOR << "Form 📄 : "
 #define MSG(msg) std::cout << NAME << msg << ENDL
 #define MSG_TWO(first, second) std::cout << NAME << first << second << ENDL
