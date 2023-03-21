@@ -51,7 +51,7 @@ PresidentialPardonForm	&PresidentialPardonForm::operator=(PresidentialPardonForm
 void		PresidentialPardonForm::beExecuted(Bureaucrat const &executor) const
 {
 	MSG_TWO(executor.getName(), " asked for a presidential pardon.");
-	MSG_TWO(_target, " has been forgiven by Zaphod Beeble");
+	MSG_TWO(_target, " has been forgiven by Zaphod Beeblebrox.");
 }
 
 /********************************
