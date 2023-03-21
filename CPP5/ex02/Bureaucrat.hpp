@@ -21,6 +21,7 @@ class Bureaucrat
 		void		minus();
 		void		minus(int nb);
 		void		signForm(Form &form) const;
+		void		executeForm(Form &form) const;
 
 	private:
 		std::string const	_name;

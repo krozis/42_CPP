@@ -14,10 +14,7 @@
 
 #define TREE "          &&& &&  & &&\n      && &\\/&\\|& ()|/ @, &&\n      &\\/(/&/&||/& /_/)_&/_&\n   &() &\\/&|()|/&\\/ '%\" & ()\n  &_\\_&&_\\ |& |&&/&__%_/_& &&\n&&   && & &| &| /& & % ()& /&&\n ()&_---()&\\&\\|&&-&&--%---()~\n     &&     \\|||\n             |||\n             |||\n             |||\n       , -=-~  .-^- _\n"
 
-#define FILE_PROBLEM "SCForm::FileCouldNotBeOpenedException"
-#define EXCEP(excep) std::invalid_argument(excep)
-
-#define GRADE_IS_OK(x) ((x > 0 && x <= 150)?(true):(false))
+#define FILE_PROBLEM "\e[31mSCForm::FileCouldNotBeOpenedException\e[0m"
 
 /********************************
  *		CREATOR / DESTRUCTOR	*
@@ -62,7 +59,7 @@ void	ShrubberyCreationForm::beExecuted(Bureaucrat const &executor) const
 	if (file.fail())
 		file.open((_target + "_shrubbery").c_str());
 	if (file.fail())
-		throw (FILE_PROBLEM);
+		throw (std::runtime_error(FILE_PROBLEM));
 	file << TREE;
 	file.close();
 	MSG_TWO(executor.getName(), " created a shrubbery");

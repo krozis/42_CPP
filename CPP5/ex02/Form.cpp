@@ -90,20 +90,12 @@ void	Form::beSigned(Bureaucrat const &bureaucrat)
 
 void	Form::execute(Bureaucrat const &executor) const
 {
-	try
-	{
-		if (_signed == false)
-			throw (EXCEP(FORM_NOT_SIGNED));
-		if (executor.getGrade() > _grade_to_exectute)
-			throw (EXCEP(GRADE_TOO_LOW));
-		MSG_EXEC(executor.getName(), this->getName());
-		this->beExecuted(executor);
-	}
-	catch(const std::exception& e)
-	{
-		std::cerr << executor.getName() << " couldn't execute " << _name << " -> "<< RED << e.what() << X << '\n';
-	}
-	
+	if (_signed == false)
+		throw (EXCEP(FORM_NOT_SIGNED));
+	if (executor.getGrade() > _grade_to_exectute)
+		throw (EXCEP(GRADE_TOO_LOW));
+	MSG_EXEC(executor.getName(), this->getName());
+	this->beExecuted(executor);
 
 }
 

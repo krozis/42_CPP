@@ -8,7 +8,8 @@
 #define NAME COLOR << "Bureaucrat 👨‍💼 : "
 #define MSG(msg) std::cout << NAME << msg << ENDL
 #define MSG_TWO(first, second) std::cout << NAME << first << second << ENDL
-#define MSG_SIGN(name, fname) std::cout << NAME << name << " wants to sign the form " << fname << ENDL
+#define MSG_SIGN(name, fname) std::cout << NAME << name << " signed the form " << fname << ENDL
+#define MSG_EXEC(name, fname) std::cout << NAME << name << " executed the form " << fname << ENDL
 
 #define INVALID_VALUE "Bureaucrat::InvalidValue"
 #define GRADE_TOO_HIGH "Bureaucrat::GradeTooHighException"
@@ -97,8 +98,21 @@ void	Bureaucrat::signForm(Form &form) const
 {
 	try
 	{
-		MSG_SIGN(_name, form.getName());
 		form.beSigned(*this);
+		MSG_SIGN(_name, form.getName());
+	}
+	catch (const std::exception& e)
+	{
+		std::cerr << _name << " couldn't sign " << form.getName() << " -> "<< RED << e.what() << X << '\n';
+	}
+}
+
+void	Bureaucrat::executeForm(Form &form) const
+{
+	try
+	{
+		form.execute(*this);
+		MSG_EXEC(_name, form.getName());
 	}
 	catch (const std::exception& e)
 	{
