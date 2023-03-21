@@ -20,6 +20,7 @@ SRCS	=	main.cpp\
 			Form.cpp\
 			ShrubberyCreationForm.cpp\
 			RobotomyRequestForm.cpp\
+			PresidentialPardonForm.cpp\
 
 OBJ		=	$(SRCS:.cpp=.o)
 

@@ -4,6 +4,7 @@
 #include "Form.hpp"
 #include "ShrubberyCreationForm.hpp"
 #include "RobotomyRequestForm.hpp"
+#include "PresidentialPardonForm.hpp"
 
 #define BIG "\e[1m \e[4m"
 #define RED "\e[31m"
@@ -119,6 +120,61 @@ int	main()
 			{
 				toto.signForm(rrf);
 				toto.executeForm(rrf);
+			}
+			catch (const std::exception& e)
+			{
+				std::cerr << e.what() << '\n';
+			}
+		}
+	}
+//
+	MSG(BIG RED, "\n______PresidentialPardonForm______");
+	{
+		MSG_SIMPLE("\nSign and execute - Bureaucrat is OK");
+		{
+			Bureaucrat				toto("Boss", 1);
+			PresidentialPardonForm	ppf(FORM_NAME, TARGET_NAME);
+
+			MSG_SIMPLE(ppf);
+			MSG(toto, "\n");
+			try
+			{
+				toto.signForm(ppf);
+				toto.executeForm(ppf);
+			}
+			catch (const std::exception& e)
+			{
+				std::cerr << e.what() << '\n';
+			}
+		}
+		MSG_SIMPLE("\nSign and execute - Bureaucrat is NOK");
+		{
+			Bureaucrat				toto("Al Mostfired", 150);
+			PresidentialPardonForm	ppf(FORM_NAME, TARGET_NAME);
+
+			MSG_SIMPLE(ppf);
+			MSG(toto, "\n");
+			try
+			{
+				toto.signForm(ppf);
+				toto.executeForm(ppf);
+			}
+			catch (const std::exception& e)
+			{
+				std::cerr << e.what() << '\n';
+			}
+		}
+		MSG_SIMPLE("\nSign and execute - Bureaucrat can sign but can't execute");
+		{
+			Bureaucrat				toto("Assistant", 15);
+			PresidentialPardonForm	ppf(FORM_NAME, TARGET_NAME);
+
+			MSG_SIMPLE(ppf);
+			MSG(toto, "\n");
+			try
+			{
+				toto.signForm(ppf);
+				toto.executeForm(ppf);
 			}
 			catch (const std::exception& e)
 			{
