@@ -44,6 +44,7 @@ int	main()
 	MSG("\nOriginal address : ", original);
 	MSG("uintptr_t value: ", serial);
 	MSG("Deserialized address : ", copy);
+	MSG("uintptr_t value form copy: ", serialize(copy));
 
 	MSG("\nSetting up original's value", "");
 	_set(original, 42, 'x', "Born2Code");
