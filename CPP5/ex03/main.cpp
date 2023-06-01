@@ -26,7 +26,13 @@ int	main()
 	Intern		intern;
 	Form		*form;
 
-	MSG(BIG, "------ CREATION ------\n");
+	MSG(BIG, "---EXAMPLE FROM SUBJECT---\n");
+	{
+		Intern someRandomIntern;
+		Form* rrf;
+		rrf = someRandomIntern.makeForm("robotomy request", "Bender");
+	}
+	MSG(BIG, "\n------ CREATION ------\n");
 	{
 		try
 		{
@@ -70,6 +76,5 @@ int	main()
 			std::cerr << "Exception happened -> " << RED << e.what() << X << '\n';
 		}
 	}
-
 	return (EXIT_SUCCESS);
 }

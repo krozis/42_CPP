@@ -53,7 +53,7 @@ ShrubberyCreationForm	&ShrubberyCreationForm::operator=(ShrubberyCreationForm co
 
 Form			*ShrubberyCreationForm::makeForm(Form *form, std::string const &type, std::string const &target)
 {
-	if (form == NULL && type == "ShrubberyCreationForm")
+	if (form == NULL && (type == "ShrubberyCreationForm" || type == "shrubbery creation"))
 		return (new ShrubberyCreationForm(target));
 	return (form);
 }

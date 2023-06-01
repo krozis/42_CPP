@@ -1,6 +1,7 @@
 #include "PresidentialPardonForm.hpp"
 #include "Form.hpp"
 #include "Bureaucrat.hpp"
+#include <cstring>
 
 #define X "\e[0m"
 #define COLOR "\e[33m"
@@ -51,7 +52,7 @@ PresidentialPardonForm	&PresidentialPardonForm::operator=(PresidentialPardonForm
 
 Form			*PresidentialPardonForm::makeForm(Form *form, std::string const &type, std::string const &target)
 {
-	if (form == NULL && type == "PresidentialPardonForm")
+	if (form == NULL && (type == "PresidentialPardonForm" || type == "presidential pardon"))
 		return (new PresidentialPardonForm(target));
 	return (form);
 }

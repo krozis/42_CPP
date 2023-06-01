@@ -54,7 +54,7 @@ RobotomyRequestForm	&RobotomyRequestForm::operator=(RobotomyRequestForm const &t
 
 Form			*RobotomyRequestForm::makeForm(Form *form, std::string const &type, std::string const &target)
 {
-	if (form == NULL && type == "RobotomyRequestForm")
+	if (form == NULL && (type == "RobotomyRequestForm" || type == "robotomy request"))
 		return (new RobotomyRequestForm(target));
 	return (form);
 }
