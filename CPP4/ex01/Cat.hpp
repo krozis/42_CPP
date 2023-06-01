@@ -18,6 +18,7 @@ class Cat: virtual public Animal
 
 	private:
 		Brain	*_brain;
+		static int	_idx;
 
 		void	_displayOne(int idx) const;
 };

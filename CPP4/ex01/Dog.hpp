@@ -17,7 +17,8 @@ class Dog: virtual public Animal
 		void	displayIdeas(int start, int end) const;
 
 	private:
-		Brain	*_brain;
+		Brain		*_brain;
+		static int	_idx;
 
 		void	_displayOne(int idx) const;
 };

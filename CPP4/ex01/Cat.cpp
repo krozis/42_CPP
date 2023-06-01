@@ -10,7 +10,6 @@
 #define MSG(msg) std::cout << NAME << msg << ENDL
 #define SOUND std::cout << NAME ITALIC << "meeeeow meow... meow? ( #PURRKWAAA??? )" << ENDL
 
-
 /********************************
  *		CREATOR / DESTRUCTOR	*
  ********************************/
@@ -19,6 +18,7 @@ Cat::Cat()
 {
 	MSG("Default constructor called");
 	_type = "cat";
+	_idx = 0;
 	_brain = new Brain();
 }
 
@@ -56,11 +56,10 @@ void	Cat::makeSound() const
 
 void	Cat::addIdea(std::string const &idea)
 {
-	static int	idx = 0;
-	_brain->setIdea(idea, idx);
-	idx++;
-	if (idx >= 100)
-		idx = 0;
+	_brain->setIdea(idea, _idx);
+	_idx++;
+	if (_idx >= 100)
+		_idx = 0;
 }
 
 void	Cat::displayIdeas(int start, int end) const

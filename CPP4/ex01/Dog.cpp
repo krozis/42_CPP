@@ -18,6 +18,7 @@ Dog::Dog()
 {
 	MSG("Default constructor called");
 	_type = "dog";
+	_idx = 0;
 	_brain = new Brain();
 }
 
@@ -55,11 +56,10 @@ void	Dog::makeSound() const
 
 void	Dog::addIdea(std::string const &idea)
 {
-	static int	idx = 0;
-	_brain->setIdea(idea, idx);
-	idx++;
-	if (idx >= 100)
-		idx = 0;
+	_brain->setIdea(idea, _idx);
+	_idx++;
+	if (_idx >= 100)
+		_idx = 0;
 }
 
 void	Dog::displayIdeas(int start, int end) const

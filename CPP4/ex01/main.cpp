@@ -11,15 +11,18 @@
 #define MSG(type, msg) std::cout << type << msg << ENDL
 #define MSG_TYPE(type, msg) std::cout << msg << "\e[31m" << type << ENDL
 
+int Cat::_idx = 0;
+int Dog::_idx = 0;
+
 int	main()
 {
-	{	//SUBJECT
+/* 	{	//SUBJECT
 		MSG(BIG, "\n-- EXAMPLE FROM SUBJECT --\n");
 		const Animal* j = new Dog();
 		const Animal* i = new Cat();
 		delete j;//
 		delete i;
-	}
+	} */
 	{	//PERSONNAL TESTS
 		MSG(BIG, "\n--- CONSTRUCTOR ---\n");
 		const Animal *zoo[NB];
@@ -82,6 +85,16 @@ int	main()
 			BL;
 			cpy.displayIdeas(0, 3);
 			BL;
+		}
+		MSG(BIG, "\n-------DEBUG-------\n");
+		{
+			Cat toto;
+			Dog titi;
+
+			toto.addIdea("LOLOLOLOLO");
+			toto.displayIdeas(0, 10);
+			titi.addIdea("LOLOLOLOLO");
+			titi.displayIdeas(0, 10);
 		}
 	}
 	return (EXIT_SUCCESS);
