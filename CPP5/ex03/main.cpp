@@ -28,9 +28,17 @@ int	main()
 
 	MSG(BIG, "---EXAMPLE FROM SUBJECT---\n");
 	{
-		Intern someRandomIntern;
-		Form* rrf;
-		rrf = someRandomIntern.makeForm("robotomy request", "Bender");
+		try
+		{
+			Intern someRandomIntern;
+			Form* rrf;
+			rrf = someRandomIntern.makeForm("robotomy request", "Bender");
+			delete (rrf);
+		}
+		catch(const std::exception& e)
+		{
+			std::cerr << "Couldn't create form -> " << RED << e.what() << X << '\n';
+		}
 	}
 	MSG(BIG, "\n------ CREATION ------\n");
 	{
@@ -51,7 +59,7 @@ int	main()
 		}
 		catch(const std::exception& e)
 		{
-			std::cerr << "Couldn't create form -> " << RED << e.what() << X << '\n';
+			std::cerr << "Exception happened -> " << RED << e.what() << X << '\n';
 		}
 	}
 	MSG(BIG, "\n------ USING THE FORM ------\n");
