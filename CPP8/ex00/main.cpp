@@ -23,6 +23,7 @@ int	main(int ac, char **av)
 {
 	if (ac != 2)
 		USAGE
+	MSG("\n  First array:");
 	try
 	{
 		std::vector<int>	vec;
@@ -32,8 +33,17 @@ int	main(int ac, char **av)
 		_fill_simple(vec);
 		idx = easyfind(vec, to_find);
 		MSG_FULL(to_find, idx);
-
-		vec.clear();
+	}
+	catch(const std::exception& e)
+	{
+		std::cerr << e.what() << '\n';
+	}
+	MSG("\n  Second array:");
+	try
+	{
+		std::vector<int>	vec;
+		int					to_find = atoi(av[1]);
+		int					idx;
 
 		_fill_double(vec);
 		idx = easyfind(vec, to_find);
