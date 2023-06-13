@@ -78,7 +78,7 @@ void	Bureaucrat::minus(int nb)
 
 void	Bureaucrat::plus()
 {
-	MSG("Downgrading grade by ");
+	MSG("Downgrading grade by 1");
 	if (_grade > 149)
 		throw(EXCEP(GRADE_TOO_LOW));
 	_grade++;

@@ -98,5 +98,11 @@ int	main()
 			std::cerr << e.what() << '\n';
 		}
 	}
+	MSG(BIG, "\n----- INSERT OPERATOR -----\n");
+	{
+		Bureaucrat toto("Silvio Berlusconi", 42) ;
+		std::cout << "----->  " << toto << std::endl;
+	}
+
 	return (EXIT_SUCCESS);
 }
