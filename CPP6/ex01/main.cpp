@@ -1,25 +1,9 @@
-#include <cstdlib>
+#include "Serializer.hpp"
 #include <iostream>
-#include <stdint.h>
+#include <cstdlib>
 
-#define MSG(one, two) std::cout << one << two << "\e[0m" << std::endl
+#define MSG(one, two) std::cout << one << two << std::endl
 
-struct Data
-{
-	int			i;
-	char		c;
-	std::string	s;
-};
-
-uintptr_t serialize(Data *ptr)
-{
-	return (reinterpret_cast<uintptr_t>(ptr));
-}
-
-Data	*deserialize(uintptr_t raw)
-{
-	return (reinterpret_cast<Data *>(raw));
-}
 
 static void	_print(Data *d)
 {
@@ -38,13 +22,13 @@ static void	_set(Data *d, int i, char c, std::string s)
 int	main()
 {
 	Data		*original = new Data;
-	uintptr_t	serial = serialize(original);
-	Data		*copy = deserialize(serial);
+	uintptr_t	serial = Serializer::serialize(original);
+	Data		*copy = Serializer::deserialize(serial);
 
 	MSG("\nOriginal address : ", original);
 	MSG("uintptr_t value: ", serial);
 	MSG("Deserialized address : ", copy);
-	MSG("uintptr_t value form copy: ", serialize(copy));
+	MSG("uintptr_t value form copy: ", Serializer::serialize(copy));
 
 	MSG("\nSetting up original's value", "");
 	_set(original, 42, 'x', "Born2Code");

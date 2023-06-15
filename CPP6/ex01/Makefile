@@ -16,6 +16,7 @@ RM		=	rm -rf
 
 # Folders and Sources
 SRCS	=	main.cpp\
+			Serializer.cpp\
 
 OBJ		=	$(SRCS:.cpp=.o)
 
