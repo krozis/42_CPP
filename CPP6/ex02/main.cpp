@@ -13,7 +13,7 @@
 Base	*generate()
 {
 	std::cout << "Generating: ";
-	switch (rand() % 3 + 1)
+	switch (rand() % 3)
 	{
 		case 1:
 			MSG(COLOR_A, "A");
