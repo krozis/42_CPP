@@ -3,8 +3,6 @@
 #define TITLE(msg) std::cout << "\e[38;5;45m\e[1m \e[4m" << msg << "\e[0m"<< std::endl
 #define SUBTITLE(msg) std::cout << "\e[90m\e[4m" << msg << "\e[0m"<< std::endl
 #define MSG(msg) std::cout << msg << std::endl
-#define MSG2(msg, val) std::cout << msg << val << std::endl
-#define VAL(type, val_a, val_b) std::cout << type << " a = " << val_a << std::endl << type << " b = " << val_b << std::endl
 
 template <typename T>
 void displayLower(T const a)
