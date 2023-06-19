@@ -1,7 +1,6 @@
 #ifndef EASYFIND_HPP
 # define EASYFIND_HPP
 
-# include <iostream>
 # include <algorithm>
 
 # define NOT_FOUND_EXCEPTION std::logic_error("easyfind::NotFoundException")
