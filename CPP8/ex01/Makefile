@@ -8,35 +8,44 @@ X			=	"\e[0m"
 BOLD		=	"\e[1m"
 
 # Compilation
-CC		=	c++
-FLAGS	=	$(WFLAGS) $(STDFLAG)
-WFLAGS	=	-Wall -Wextra -Werror
-STDFLAG	=	-std=c++98
-RM		=	rm -rf
+CXX			=	c++
+FLAGS		=	$(CPPFLAGS) $(CXXFLAGS) $(STDFLAG)
+CPPFLAGS	=	-MMD
+CXXFLAGS	=	-Wall -Wextra -Werror
+STDFLAG		=	-std=c++98
+RM			=	rm -rf
 
 # Folders and Sources
 SRCS	=	main.cpp\
 			Span.cpp\
 
 OBJ		=	$(SRCS:.cpp=.o)
+DEP		=	$(OBJ:.o=.d)
 
 %.o:	%.cpp
-		@$(CC) $(FLAGS) -o $@ -c $<
+		@$(CXX) $(FLAGS) -o $@ -c $<
 
 $(NAME):	$(OBJ)
-		@$(CC) $(FLAGS) -o $@ $^
+		@$(CXX) $(FLAGS) -o $@ $^
 		@echo $(G)$(BOLD)$(NAME) $(X)$(G)created$(X)
 
 all:	$(NAME)
 
 clean:
-		@$(RM) $(OBJ);
+		@$(RM) $(OBJ)
+		@$(RM) $(DEP)
 		@echo $(R)Object files removed $(X)
 
 fclean:	clean
 		@$(RM) $(NAME)
 		@echo $(R)$(BOLD)$(NAME) $(X)$(R)removed $(X)
 
-re:	fclean all
+re:	fclean
+	@$(MAKE)  --no-print-directory all
 
-.PHONY: all clean fclean re
+test:	$(NAME)
+		./$(NAME)
+
+-include $(DEP)
+
+.PHONY: all clean fclean re test
