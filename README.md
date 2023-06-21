@@ -14,7 +14,7 @@
 | [CPP module 4](https://cdn.intra.42.fr/pdf/pdf/79072/fr.subject.pdf) | 10 | Polymorphisme par sous-typage, classes abstraites, interfaces | DONE - 92% - TO RETRY LATER |
 | [CPP module 5](https://cdn.intra.42.fr/pdf/pdf/79159/fr.subject.pdf) | 9 | Répétitions et exceptions | DONE - 100% |
 | [CPP module 6](https://cdn.intra.42.fr/pdf/pdf/84213/fr.subject.pdf) | 5.1 | C++ casts | DONE - 100% |
-| [CPP module 7](https://cdn.intra.42.fr/pdf/pdf/79164/fr.subject.pdf) | 6 | C++ templates | DONE - 100% |
+| [CPP module 7](https://cdn.intra.42.fr/pdf/pdf/84888/fr.subject.pdf) | 6 | C++ templates | DONE - 100% |
 | [CPP module 8](https://cdn.intra.42.fr/pdf/pdf/86461/fr.subject.pdf) | 7 | Containers templates, itérateurs, algorithmes | DONE - 100% |
 | [CPP module 9](https://cdn.intra.42.fr/pdf/pdf/87131/en.subject.pdf) | 1.4 | STL | PENDING |
 
