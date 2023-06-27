@@ -2,38 +2,51 @@
 NAME	=	btc
 
 #Colors
-R			=	"\e[31m"
-G			=	"\e[32m"
-X			=	"\e[0m"
-BOLD		=	"\e[1m"
+ifeq ($(OS),Windows_NT)
+	R		=	""
+	G		=	""
+	X		=	""
+	BOLD	=	""
+else
+	R		=	"\e[31m"
+	G		=	"\e[32m"
+	X		=	"\e[0m"
+	BOLD	=	"\e[1m"
+endif
 
 # Compilation
 CXX			=	c++
-FLAGS		=	$(CPPFLAGS) $(CXXFLAGS) $(STDFLAG)
+FLAGS		=	$(STDFLAG) $(CXXFLAGS) $(CPPFLAGS)
 CPPFLAGS	=	-MMD
 CXXFLAGS	=	-Wall -Wextra -Werror
 STDFLAG		=	-std=c++98
-RM			=	rm -rf
+
+ifeq ($(OS),Windows_NT)
+	RM	=	del /q
+else
+	RM	=	rm -rf
+endif
 
 # Folders and Sources
 SRCS	=	main.cpp\
 
+OBJ_DIR	=	obj
 OBJ		=	$(SRCS:.cpp=.o)
 DEP		=	$(OBJ:.o=.d)
 
-%.o:	%.cpp
+$(OBJ_DIR)/%.o: %.cpp
+		@mkdir -p $(dir $@)
 		@$(CXX) $(FLAGS) -o $@ -c $<
 
-$(NAME):	$(OBJ)
+$(NAME):	$(OBJ_DIR)/$(OBJ)
 		@$(CXX) $(FLAGS) -o $@ $^
 		@echo $(G)$(BOLD)$(NAME) $(X)$(G)created$(X)
 
 all:	$(NAME)
 
 clean:
-		@$(RM) $(OBJ)
-		@$(RM) $(DEP)
-		@echo $(R)Object files removed $(X)
+		@$(RM) $(OBJ_DIR)
+		@echo $(R)Object files directory removed $(X)
 
 fclean:	clean
 		@$(RM) $(NAME)
@@ -45,6 +58,6 @@ re:	fclean
 test:	$(NAME)
 		./$(NAME)
 
--include $(DEP)
+-include $(addprefix $(OBJ_DIR)/,$(DEP))
 
 .PHONY: all clean fclean re test
