@@ -29,6 +29,7 @@ endif
 
 # Folders and Sources
 SRCS	=	main.cpp\
+			BitcoinExchange.cpp\
 
 OBJ_DIR	=	obj
 OBJ		=	$(SRCS:.cpp=.o)
