@@ -32,14 +32,14 @@ SRCS	=	main.cpp\
 			BitcoinExchange.cpp\
 
 OBJ_DIR	=	obj
-OBJ		=	$(SRCS:.cpp=.o)
+OBJ		=	$(addprefix $(OBJ_DIR)/,$(SRCS:.cpp=.o))
 DEP		=	$(OBJ:.o=.d)
 
 $(OBJ_DIR)/%.o: %.cpp
 		@mkdir -p $(dir $@)
 		@$(CXX) $(FLAGS) -o $@ -c $<
 
-$(NAME):	$(OBJ_DIR)/$(OBJ)
+$(NAME):	$(OBJ)
 		@$(CXX) $(FLAGS) -o $@ $^
 		@echo $(G)$(BOLD)$(NAME) $(X)$(G)created$(X)
 
@@ -57,7 +57,7 @@ re:	fclean
 	@$(MAKE)  --no-print-directory all
 
 test:	$(NAME)
-		./$(NAME)
+		./$(NAME) input.txt
 
 -include $(addprefix $(OBJ_DIR)/,$(DEP))
 
