@@ -1,7 +1,7 @@
 #include <cstdlib>
 #include "BitcoinExchange.hpp"
 
-#define DATABASE "./data.csv"
+#define DATABASE "data.csv"
 
 int	main(int ac, char **av)
 {

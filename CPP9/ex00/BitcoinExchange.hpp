@@ -4,33 +4,32 @@
 # include <iostream>
 # include <map>
 
+/**
+ * map : key = date (string)
+ * associed value = value (float)
+*/
+
 class BitcoinExchange
 {
 	public:
-		BitcoinExchange(std::string const &input_file, std::string const &data_file);
+		BitcoinExchange(std::string const &inputfile, std::string const &datafile);
 		~BitcoinExchange();
 
 	private:
 		std::map<std::string, float>	_data;
-		std::string						_input_file;
 
-		//Unused Coplien
+		//unused Coplien
 		BitcoinExchange();
-		BitcoinExchange(BitcoinExchange const &copy);	
-		BitcoinExchange	&operator=(BitcoinExchange const &copy);
+		BitcoinExchange(BitcoinExchange const &toCopy);
+		BitcoinExchange	&operator=(BitcoinExchange const &toAssign);
 
-		void		init(std::string const &data_file);
-		void		processInput();
+		void		init(std::string const &datafile);  //fill _data map from data.csv
+		void		process(std::string const &inputfile);
+
 		void		processLine(std::string const &line);
 		bool		isValidDate(std::string const &date) const;
 		std::string	findClosestDate(std::string const &date) const;
 
-	public:
-		//GETTER/SETTER
-		std::map<std::string, float> const	&getData() const;
-		std::string	const					&getInputFile() const;
- 
-		void	setInputFile(std::string const &input_file);
 };
 
 #endif
