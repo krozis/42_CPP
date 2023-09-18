@@ -25,10 +25,7 @@ BitcoinExchange::~BitcoinExchange() {}
 
 BitcoinExchange::BitcoinExchange() {}
 
-BitcoinExchange::BitcoinExchange(BitcoinExchange const &copy)
-{
-	_data = copy._data;
-}
+BitcoinExchange::BitcoinExchange(BitcoinExchange const &copy) {_data = copy._data;}
 
 BitcoinExchange	&BitcoinExchange::operator=(BitcoinExchange const &copy)
 {
