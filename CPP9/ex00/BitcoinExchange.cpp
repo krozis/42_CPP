@@ -107,7 +107,7 @@ void	BitcoinExchange::processLine(std::string const &line)
 	if (!(valueStream >> value))
 		throw std::runtime_error("invalid value => " + strvalue);
 	//check if positive
-	if (value <= 0)
+	if (value < 0)
 		throw std::runtime_error("not a positive number.");	
 	//check if not superior to 1000
 	if (value > 1000)
