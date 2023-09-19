@@ -2,26 +2,41 @@
 NAME	=	PmergeMe
 
 #Colors
-R			=	"\e[31m"
-G			=	"\e[32m"
-X			=	"\e[0m"
-BOLD		=	"\e[1m"
+ifeq ($(OS),Windows_NT)
+	R		=	""
+	G		=	""
+	X		=	""
+	BOLD	=	""
+else
+	R		=	"\e[31m"
+	G		=	"\e[32m"
+	X		=	"\e[0m"
+	BOLD	=	"\e[1m"
+endif
 
 # Compilation
 CXX			=	c++
-FLAGS		=	$(CPPFLAGS) $(CXXFLAGS) $(STDFLAG)
+FLAGS		=	$(STDFLAG) $(CXXFLAGS) $(CPPFLAGS)
 CPPFLAGS	=	-MMD
 CXXFLAGS	=	-Wall -Wextra -Werror
 STDFLAG		=	-std=c++98
-RM			=	rm -rf
+
+ifeq ($(OS),Windows_NT)
+	RM	=	del /q
+else
+	RM	=	rm -rf
+endif
 
 # Folders and Sources
 SRCS	=	main.cpp\
+			PmergeMe.cpp\
 
-OBJ		=	$(SRCS:.cpp=.o)
+OBJ_DIR	=	obj
+OBJ		=	$(addprefix $(OBJ_DIR)/,$(SRCS:.cpp=.o))
 DEP		=	$(OBJ:.o=.d)
 
-%.o:	%.cpp
+$(OBJ_DIR)/%.o: %.cpp
+		@mkdir -p $(dir $@)
 		@$(CXX) $(FLAGS) -o $@ -c $<
 
 $(NAME):	$(OBJ)
@@ -31,9 +46,8 @@ $(NAME):	$(OBJ)
 all:	$(NAME)
 
 clean:
-		@$(RM) $(OBJ)
-		@$(RM) $(DEP)
-		@echo $(R)Object files removed $(X)
+		@$(RM) $(OBJ_DIR)
+		@echo $(R)Object files directory removed $(X)
 
 fclean:	clean
 		@$(RM) $(NAME)
@@ -43,8 +57,8 @@ re:	fclean
 	@$(MAKE)  --no-print-directory all
 
 test:	$(NAME)
-		./$(NAME)
+		./$(NAME) input.txt
 
--include $(DEP)
+-include $(addprefix $(OBJ_DIR)/,$(DEP))
 
 .PHONY: all clean fclean re test
