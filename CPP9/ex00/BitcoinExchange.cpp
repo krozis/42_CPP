@@ -94,6 +94,21 @@ void	BitcoinExchange::processLine(std::string const &line)
 	std::string	date = line.substr(0, separator_pos);
 	std::string	strvalue = line.substr(separator_pos + 1);
 
+	//check strvalue (only digits, dot or spaces)
+	bool	firstc = true;
+    for (size_t i = 0; i < strvalue.length(); ++i)
+	{
+		if (i == 0 && strvalue[i] == ' ')
+		{
+			while (strvalue[i] == ' ')
+				i++;
+			firstc = false;
+		}
+        if (!isdigit(strvalue[i]) && !firstc)
+			if (strvalue[i] != '.' || firstc)
+            	throw std::runtime_error("invalid value => " + strvalue);
+    }
+
 	//check date is ok
 	if (!isValidDate(date))
 		throw std::runtime_error("invalid date => " + date);
