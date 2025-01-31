@@ -1,3 +1,5 @@
+// Used colors
+
 #define X "\e[0m"
 #define BIG "\e[1m \e[4m"
 #define BOLD "\e[1m"
